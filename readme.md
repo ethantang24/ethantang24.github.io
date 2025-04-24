@@ -1,2 +1,2 @@
-# Github Pages
-#ethans page
+# ethan's page
+has some stuff
