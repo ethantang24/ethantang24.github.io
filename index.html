@@ -102,14 +102,14 @@
   <script>
     const passwordInput = document.getElementById('password-input');
     const correctPassword = "afruit"; // Change this!
-
+    
     function pressKey(key) {
       if (key === 'backspace') {
         passwordInput.value = passwordInput.value.slice(0, -1);
       } else {
         passwordInput.value += key;
       }
-
+    
       // Trigger animation for the pressed key
       const buttons = document.querySelectorAll('button');
       buttons.forEach(btn => {
@@ -121,7 +121,7 @@
         }
       });
     }
-
+    
     function submitPassword() {
       if (passwordInput.value === correctPassword) {
         window.location.href = "ethanytangcodes.github.io/other/"; // Change this!
@@ -130,17 +130,25 @@
         passwordInput.value = '';
       }
     }
-
+    
     window.addEventListener('keydown', (event) => {
       const key = event.key;
+    
+      // Prevent default behavior for any key press in the input field
+      if (event.target === passwordInput) {
+        event.preventDefault();
+      }
+    
+      // Allow only on-screen keyboard keys and handle Enter and Backspace keys
       if (key === "Enter") {
         submitPassword();
       } else if (key === "Backspace") {
         pressKey('backspace');
-      } else if (key.length === 1) {
+      } else if (key.length === 1 && /[a-z0-9]/i.test(key)) {
         pressKey(key.toLowerCase());
       }
     });
+
   </script>
 </body>
 </html>
