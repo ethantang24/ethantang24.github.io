@@ -1,48 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="ethanytang">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="je81n_UtY27MEUx6Cy_o74rw-ibJmZRVluilmMSrD0k">
-    <link rel="icon" href="assets/img/classroom.png">
-    <title>Classroom</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <nav class="navbar">
-    <a href="index.html">Home</a> <!-- Updated to lead to index.html -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="title" content="ethanytang">
+  <meta name="robots" content="index, follow">
+  <meta name="google-site-verification" content="je81n_UtY27MEUx6Cy_o74rw-ibJmZRVluilmMSrD0k">
+  <link rel="icon" href="assets/img/classroom.png">
+  <title>Classroom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
     <a href="/aboutme.html">About Me</a>
-    </nav>
+  </nav>
 
-    <h1>Just some info about me</h1>
-    <p>email: ethantytang11@gmail.com</p>
-    <p>github: ethanytangcodes</p>
-    <p>insta: ethantytang11</p>
-    <p>discord: orangepea</p>
+  <h1>Just some info about me</h1>
+  <p>email: ethantytang11@gmail.com</p>
+  <p>github: ethanytangcodes</p>
+  <p>insta: ethantytang11</p>
+  <p>discord: orangepea</p>
 
-    <h1 id="projects">Made by Ethan Tang</h1>
+  <h1 id="projects">Made by Ethan Tang</h1>
 
-    <div class="spacer"></div>
+  
 
-    <a href="https://ethanytangcodes.github.io/gfiles/" class="gfiles-button">you know what else is massive</a>
+  <!-- Password input and keyboard -->
+  <div id="password-container">
+    <input type="text" id="password-input" placeholder="Type password here..." readonly>
+    <div id="keyboard">
+      <!-- Row 1 -->
+      <div class="key-row">
+        <button onclick="pressKey('1')">1</button>
+        <button onclick="pressKey('2')">2</button>
+        <button onclick="pressKey('3')">3</button>
+        <button onclick="pressKey('4')">4</button>
+        <button onclick="pressKey('5')">5</button>
+        <button onclick="pressKey('6')">6</button>
+        <button onclick="pressKey('7')">7</button>
+        <button onclick="pressKey('8')">8</button>
+        <button onclick="pressKey('9')">9</button>
+        <button onclick="pressKey('0')">0</button>
+        <button onclick="pressKey('-')">-</button>
+        <button onclick="pressKey('=')">=</button>
+        <button onclick="pressKey('backspace')">⌫</button>
+      </div>
 
-    <p class="intro-text fade-in-on-scroll">Made by Ethan Tang</p>
-    <p class="fade-in-on-scroll">I'm not responsible for anything you do on this website</p>
+      <!-- Row 2 -->
+      <div class="key-row">
+        <button onclick="pressKey('q')">Q</button>
+        <button onclick="pressKey('w')">W</button>
+        <button onclick="pressKey('e')">E</button>
+        <button onclick="pressKey('r')">R</button>
+        <button onclick="pressKey('t')">T</button>
+        <button onclick="pressKey('y')">Y</button>
+        <button onclick="pressKey('u')">U</button>
+        <button onclick="pressKey('i')">I</button>
+        <button onclick="pressKey('o')">O</button>
+        <button onclick="pressKey('p')">P</button>
+        <button onclick="pressKey('[')">[</button>
+        <button onclick="pressKey(']')">]</button>
+      </div>
 
-    <script>
-      window.addEventListener('scroll', () => {
-        const elements = document.querySelectorAll('.fade-in-on-scroll');
-        elements.forEach(element => {
-          const rect = element.getBoundingClientRect();
-          if (rect.top < window.innerHeight && rect.bottom >= 0) {
-            element.classList.add('visible');
-          }
-        });
-      });
+      <!-- Row 3 -->
+      <div class="key-row">
+        <button onclick="pressKey('a')">A</button>
+        <button onclick="pressKey('s')">S</button>
+        <button onclick="pressKey('d')">D</button>
+        <button onclick="pressKey('f')">F</button>
+        <button onclick="pressKey('g')">G</button>
+        <button onclick="pressKey('h')">H</button>
+        <button onclick="pressKey('j')">J</button>
+        <button onclick="pressKey('k')">K</button>
+        <button onclick="pressKey('l')">L</button>
+        <button onclick="pressKey(';')">;</button>
+        <button onclick="pressKey('\'')">'</button>
+      </div>
 
-      window.dispatchEvent(new Event('scroll'));
-    </script>
-  </body>
+      <!-- Row 4 -->
+      <div class="key-row">
+        <button onclick="pressKey('z')">Z</button>
+        <button onclick="pressKey('x')">X</button>
+        <button onclick="pressKey('c')">C</button>
+        <button onclick="pressKey('v')">V</button>
+        <button onclick="pressKey('b')">B</button>
+        <button onclick="pressKey('n')">N</button>
+        <button onclick="pressKey('m')">M</button>
+        <button onclick="pressKey(',')">,</button>
+        <button onclick="pressKey('.')">.</button>
+        <button onclick="pressKey('/')">/</button>
+      </div>
+
+      <!-- Final row -->
+      <div class="key-row">
+        <button class="wide" onclick="pressKey(' ')">Space</button>
+        <button class="wide" onclick="submitPassword()">Enter</button>
+      </div>
+    </div>
+  </div>
+  <div class="spacer"></div>
+
+  <a href="https://ethanytangcodes.github.io/gfiles/" class="gfiles-button">you know what else is massive</a>
+
+  <p class="intro-text fade-in-on-scroll">Made by Ethan Tang</p>
+  <p class="fade-in-on-scroll">I'm not responsible for anything you do on this website</p>
+  <script>
+    const passwordInput = document.getElementById('password-input');
+    const correctPassword = "orangesecret"; // Change this!
+
+    function pressKey(key) {
+      if (key === 'backspace') {
+        passwordInput.value = passwordInput.value.slice(0, -1);
+      } else {
+        passwordInput.value += key;
+      }
+    }
+
+    function submitPassword() {
+      if (passwordInput.value === correctPassword) {
+        window.location.href = "https://yourhiddenwebsite.com"; // Change this!
+      } else {
+        alert("Incorrect password!");
+        passwordInput.value = '';
+      }
+    }
+
+    window.addEventListener('keydown', (event) => {
+      const key = event.key;
+      if (key === "Enter") {
+        submitPassword();
+      } else if (key === "Backspace") {
+        pressKey('backspace');
+      } else if (key.length === 1) {
+        pressKey(key.toLowerCase());
+      }
+    });
+  </script>
+</body>
 </html>
