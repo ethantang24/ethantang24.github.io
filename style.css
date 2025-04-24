@@ -192,6 +192,30 @@ p {
   transition: transform 0.1s ease, width 0.1s ease;
 }
 
+#passwordButton {
+      margin-top: 10px;
+      display: none;
+    }
+    .key-row button.active {
+      background-color: #c0c0c0;
+    }
+    #password-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .key-row button {
+      padding: 10px 15px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .wide {
+      width: 180px;
+    }
+
 .key-row button.active {
   transform: scaleX(1.2); /* Widens the key */
 }
