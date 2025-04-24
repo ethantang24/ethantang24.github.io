@@ -187,4 +187,12 @@ p {
   min-width: 100px;
   font-weight: bold;
 }
+/* In style.css */
+.key-row button {
+  transition: transform 0.1s ease, width 0.1s ease;
+}
+
+.key-row button.active {
+  transform: scaleX(1.2); /* Widens the key */
+}
 
