@@ -101,7 +101,7 @@
   
   <script>
     const passwordInput = document.getElementById('password-input');
-    const correctPassword = "orangesecret"; // Change this!
+    const correctPassword = "afruit"; // Change this!
 
     function pressKey(key) {
       if (key === 'backspace') {
@@ -109,11 +109,22 @@
       } else {
         passwordInput.value += key;
       }
+
+      // Trigger animation for the pressed key
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        if (btn.textContent.trim().toLowerCase() === key.toLowerCase() || 
+            (key === ' ' && btn.textContent.trim() === 'Space') || 
+            (key === 'backspace' && btn.textContent.includes('⌫'))) {
+          btn.classList.add('active');
+          setTimeout(() => btn.classList.remove('active'), 100);
+        }
+      });
     }
 
     function submitPassword() {
       if (passwordInput.value === correctPassword) {
-        window.location.href = "https://yourhiddenwebsite.com"; // Change this!
+        window.location.href = "ethanytangcodes.github.io/other/"; // Change this!
       } else {
         alert("Incorrect password!");
         passwordInput.value = '';
