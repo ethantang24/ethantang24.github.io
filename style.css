@@ -126,3 +126,65 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
+/* Password Input Section */
+#password-container {
+  margin: 40px auto;
+  text-align: center;
+}
+
+#password-input {
+  font-size: 1.4rem;
+  padding: 10px;
+  width: 80%;
+  max-width: 400px;
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyboard Container */
+#keyboard {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Key Rows */
+.key-row {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  flex-wrap: wrap;
+}
+
+/* Individual Keys */
+#keyboard button {
+  padding: 12px 14px;
+  margin: 3px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #eee;
+  cursor: pointer;
+  min-width: 40px;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Key Hover & Press Feedback */
+#keyboard button:hover {
+  background-color: #ddd;
+}
+
+#keyboard button:active {
+  transform: scale(0.95);
+}
+
+/* Wide keys like Space and Enter */
+#keyboard button.wide {
+  min-width: 100px;
+  font-weight: bold;
+}
+
