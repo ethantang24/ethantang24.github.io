@@ -25,7 +25,6 @@
 
   <p class="intro-text fade-in-on-scroll">Made by Ethan Tang</p>
   <p class="fade-in-on-scroll">I'm not responsible for anything you do on this website</p>
-  
 
   <!-- Password input and keyboard -->
   <div id="password-container">
@@ -100,18 +99,22 @@
       </div>
     </div>
   </div>
-  
+
+  <!-- Go to Site Button (Initially hidden) -->
+  <button id="passwordButton" onclick="redirectToSite()">Go to Site</button>
+
   <script>
     const passwordInput = document.getElementById('password-input');
     const correctPassword = "afruit"; // Change this!
-    
+    const passwordButton = document.getElementById("passwordButton");
+
     function pressKey(key) {
       if (key === 'backspace') {
         passwordInput.value = passwordInput.value.slice(0, -1);
       } else {
         passwordInput.value += key;
       }
-    
+
       // Trigger animation for the pressed key
       const buttons = document.querySelectorAll('button');
       buttons.forEach(btn => {
@@ -123,24 +126,28 @@
         }
       });
     }
-    
+
     function submitPassword() {
       if (passwordInput.value === correctPassword) {
-        window.location.href = "https://ethanytangcodes.github.io/other/"; // Change this!
+        passwordButton.style.display = "inline-block"; // Show the button if password is correct
       } else {
         alert("Incorrect password!");
         passwordInput.value = '';
       }
     }
-    
+
+    function redirectToSite() {
+      window.location.href = "https://ethanytangcodes.github.io/other/"; // Redirect when the button is clicked
+    }
+
     window.addEventListener('keydown', (event) => {
       const key = event.key;
-    
+
       // Prevent default behavior for any key press in the input field
       if (event.target === passwordInput) {
         event.preventDefault();
       }
-    
+
       // Allow only on-screen keyboard keys and handle Enter and Backspace keys
       if (key === "Enter") {
         submitPassword();
@@ -150,7 +157,6 @@
         pressKey(key.toLowerCase());
       }
     });
-
   </script>
 </body>
 </html>
