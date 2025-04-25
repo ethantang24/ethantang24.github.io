@@ -128,13 +128,16 @@
     }
 
     function submitPassword() {
-      if (passwordInput.value === correctPassword) {
-        passwordButton.style.display = "inline-block"; // Show the button if password is correct
-      } else {
-        alert("Incorrect password!");
-        passwordInput.value = '';
-      }
+    if (passwordInput.value === correctPassword) {
+      passwordButton.style.display = "inline-block";
+    } else {
+      passwordInput.classList.add('shake');
+      setTimeout(() => passwordInput.classList.remove('shake'), 300);
+      alert("nah, that ain't it");
+      passwordInput.value = '';
     }
+  }
+
 
     function redirectToSite() {
       window.location.href = "https://ethanytangcodes.github.io/other/"; // Redirect when the button is clicked
