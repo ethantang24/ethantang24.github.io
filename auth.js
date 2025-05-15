@@ -13,10 +13,7 @@ function setAuthCookie() {
   document.cookie = COOKIE_NAME + "=" + COOKIE_VALUE + ";" + expires + ";path=/";
 }
 
-// ❌ Clear cookie
-function clearAuthCookie() {
-  document.cookie = COOKIE_NAME + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
+
 
 // 🔍 Read cookie
 function getCookie(name) {
@@ -33,6 +30,8 @@ function getCookie(name) {
 // 🔐 Check if user is authenticated
 function checkAuth() {
   if (getCookie(COOKIE_NAME) !== COOKIE_VALUE) {
+    // Save current page URL before redirecting
+    localStorage.setItem("redirectAfterLogin", window.location.href);
     window.location.href = "passcode.html";
   }
 }
@@ -41,7 +40,10 @@ function checkAuth() {
 function submitPasscode(input) {
   if (input === CORRECT_PASSCODE) {
     setAuthCookie();
-    window.location.href = "index.html"; // or home page
+    // Redirect back to original page if saved
+    const redirectTo = localStorage.getItem("redirectAfterLogin") || "index.html";
+    localStorage.removeItem("redirectAfterLogin");
+    window.location.href = redirectTo;
   } else {
     alert("Incorrect passcode.");
   }
