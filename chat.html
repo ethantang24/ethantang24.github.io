@@ -17,6 +17,21 @@
     <a href="/info.html">Info</a>
   </nav>
 
+    <script>
+    // Dark Mode Toggle
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      darkModeToggle.onclick = () => {
+        const htmlEl = document.documentElement;
+        if (htmlEl.getAttribute("data-theme") === "dark") {
+          htmlEl.removeAttribute("data-theme");
+          darkModeToggle.textContent = "Dark Mode";
+        } else {
+          htmlEl.setAttribute("data-theme", "dark");
+          darkModeToggle.textContent = "Light Mode";
+        }
+      };
+
+  </script>
   <!-- Main Content -->
   <main>
 
