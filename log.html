@@ -1,1 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="ethanytang - Chat" />
+  <link rel="icon" href="assets/img/classroom.png" type="image/png" />
+  <title>Classroom</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="/aboutme.html">About Me</a>
+    <a href="/chat.html">Chat</a>
+    <a href="/info.html">Info</a>
+    <a href="/log.html">Log</a>
+        <button id="dark-mode-toggle" class="gfiles-button" style="margin-left: 20px;">Dark Mode</button>
+  </nav>
+
+    <script>
+    // Dark Mode Toggle
+      const darkModeToggle = document.getElementById("dark-mode-toggle");
+      darkModeToggle.onclick = () => {
+        const htmlEl = document.documentElement;
+        if (htmlEl.getAttribute("data-theme") === "dark") {
+          htmlEl.removeAttribute("data-theme");
+          darkModeToggle.textContent = "Dark Mode";
+        } else {
+          htmlEl.setAttribute("data-theme", "dark");
+          darkModeToggle.textContent = "Light Mode";
+        }
+      };
+
+  </script>
+  <!-- Main Content -->
+  <main>
+
+  </main>
+</body>
+</html>
 
