@@ -191,3 +191,33 @@ p {
 .secret-image:hover {
   opacity: 1; /* Shows when the mouse hovers over it */
 }
+#update-log {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.log-entry {
+  background-color: #f2f2f2;
+  padding: 15px 20px;
+  border-left: 4px solid #007bff;
+  border-radius: 8px;
+}
+
+.log-date {
+  font-weight: bold;
+  font-size: 0.9em;
+  color: #007bff;
+}
+
+.log-text {
+  margin: 5px 0 0;
+}
+
+html[data-theme="dark"] .log-entry {
+  background-color: #1e1e1e;
+  color: white;
+  border-left-color: #66aaff;
+}
+
