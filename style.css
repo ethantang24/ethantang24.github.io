@@ -1,8 +1,48 @@
+:root {
+  --bg-color: #f5f5f5;
+  --text-color: #333;
+  --nav-bg-color: #fff;
+  --nav-border-color: #ddd;
+  --link-color: #777;
+  --link-hover-color: #333;
+  --button-bg: transparent;
+  --button-border: #888;
+  --button-color: #888;
+  --button-hover-bg: #eee;
+  --button-hover-color: #555;
+  --p-color: #666;
+  --h1-color: #555;
+  --navbar-link-color: #444;
+  --navbar-link-hover: #000;
+  --keyboard-key-bg: #eee;
+  --keyboard-key-hover-bg: #ddd;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --nav-bg-color: #1e1e1e;
+  --nav-border-color: #333;
+  --link-color: #aaa;
+  --link-hover-color: #fff;
+  --button-bg: transparent;
+  --button-border: #888;
+  --button-color: #ccc;
+  --button-hover-bg: #333;
+  --button-hover-color: #eee;
+  --p-color: #bbb;
+  --h1-color: #ccc;
+  --navbar-link-color: #ccc;
+  --navbar-link-hover: #fff;
+  --keyboard-key-bg: #333;
+  --keyboard-key-hover-bg: #444;
+}
+
 body {
   font-family: 'Arial', sans-serif;
-  color: #333;
+  color: var(--text-color);
   text-align: center;
-  background-color: #f5f5f5;
+  background-color: var(--bg-color);
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -15,8 +55,8 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  background-color: var(--nav-bg-color);
+  border-bottom: 1px solid var(--nav-border-color);
   padding: 10px 20px;
   display: flex;
   justify-content: center;
@@ -25,20 +65,20 @@ body {
 }
 
 .navbar a {
-  color: #444;
+  color: var(--navbar-link-color);
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .navbar a:hover {
-  color: #000;
+  color: var(--navbar-link-hover);
 }
 
 h1 {
   font-size: 2.5em;
   margin-top: 50px;
-  color: #555;
+  color: var(--h1-color);
   font-weight: 300;
   opacity: 0;
   transform: translateY(50px);
@@ -47,7 +87,7 @@ h1 {
 
 a {
   display: block;
-  color: #777;
+  color: var(--link-color);
   text-decoration: none;
   margin: 15px 0;
   font-size: 1.1em;
@@ -57,7 +97,7 @@ a {
 }
 
 a:hover {
-  color: #333;
+  color: var(--link-hover-color);
   transform: translateY(-3px);
   transition: transform 0.3s ease-in-out;
 }
@@ -66,9 +106,9 @@ a:hover {
   display: inline-block;
   padding: 8px 20px;
   margin-top: 20px;
-  background-color: transparent;
-  border: 1px solid #888;
-  color: #888;
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-border);
+  color: var(--button-color);
   font-size: 1em;
   font-weight: 400;
   border-radius: 5px;
@@ -80,15 +120,15 @@ a:hover {
 }
 
 .gfiles-button:hover {
-  background-color: #eee;
-  color: #555;
-  border-color: #555;
+  background-color: var(--button-hover-bg);
+  color: var(--button-hover-color);
+  border-color: var(--button-hover-color);
   transform: translateY(-3px);
 }
 
 p {
   font-size: 1.2em;
-  color: #666;
+  color: var(--p-color);
   margin-top: 50px;
   opacity: 0;
   transform: translateY(50px);
@@ -97,7 +137,7 @@ p {
 
 .intro-text {
   font-size: 1.5em;
-  color: #444;
+  color: var(--text-color);
   margin-top: 30px;
   font-weight: 300;
   opacity: 0;
@@ -126,110 +166,16 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
-/* Password Input Section */
-#password-container {
-  margin: 40px auto;
-  text-align: center;
+
+
+
+
+
+.wide {
+  width: 180px;
 }
 
-#password-input {
-  font-size: 1.4rem;
-  padding: 10px;
-  width: 80%;
-  max-width: 400px;
-  margin-bottom: 20px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-}
 
-/* Keyboard Container */
-#keyboard {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-/* Key Rows */
-.key-row {
-  display: flex;
-  justify-content: center;
-  margin: 5px 0;
-  flex-wrap: wrap;
-}
-
-/* Individual Keys */
-#keyboard button {
-  padding: 12px 14px;
-  margin: 3px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #eee;
-  cursor: pointer;
-  min-width: 40px;
-  transition: background-color 0.2s, transform 0.1s;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Key Hover & Press Feedback */
-#keyboard button:hover {
-  background-color: #ddd;
-}
-
-#keyboard button:active {
-  transform: scale(0.95);
-}
-
-/* Wide keys like Space and Enter */
-#keyboard button.wide {
-  min-width: 100px;
-  font-weight: bold;
-}
-/* In style.css */
-.key-row button {
-  transition: transform 0.1s ease, width 0.1s ease;
-}
-
-#passwordButton {
-      margin-top: 10px;
-      display: none;
-    }
-    .key-row button.active {
-      background-color: #c0c0c0;
-    }
-    #password-input {
-      width: 100%;
-      padding: 10px;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .key-row button {
-      padding: 10px 15px;
-      font-size: 18px;
-      margin: 5px;
-      cursor: pointer;
-    }
-    .wide {
-      width: 180px;
-    }
-
-.key-row button.active {
-  transform: scaleX(1.2); /* Widens the key */
-}
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-
-.shake {
-  animation: shake 0.3s;
-}
 
 .secret-image {
   position: fixed;
@@ -245,4 +191,3 @@ p {
 .secret-image:hover {
   opacity: 1; /* Shows when the mouse hovers over it */
 }
-
