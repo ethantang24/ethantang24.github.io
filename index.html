@@ -29,7 +29,6 @@
     <a href="/chat.html">Chat</a>
     <a href="/info.html">Info</a>
     <a href="/log.html">Log</a>
-        <button id="dark-mode-toggle" class="gfiles-button" style="margin-left: 20px;">Dark Mode</button>
   </nav>
 
   <main>
@@ -96,18 +95,6 @@
         }
       };
 
-      // Dark Mode Toggle
-      const darkModeToggle = document.getElementById("dark-mode-toggle");
-      darkModeToggle.onclick = () => {
-        const htmlEl = document.documentElement;
-        if (htmlEl.getAttribute("data-theme") === "dark") {
-          htmlEl.removeAttribute("data-theme");
-          darkModeToggle.textContent = "Dark Mode";
-        } else {
-          htmlEl.setAttribute("data-theme", "dark");
-          darkModeToggle.textContent = "Light Mode";
-        }
-      };
     </script>
 
     <h1 id="projects">Made by Ethan Tang</h1>
