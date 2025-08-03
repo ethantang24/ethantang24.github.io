@@ -17,21 +17,6 @@
     <a href="/info.html">Info</a>
     <a href="/log.html">Log</a>
   </nav>
-  <script>
-    // Dark Mode Toggle
-      const darkModeToggle = document.getElementById("dark-mode-toggle");
-      darkModeToggle.onclick = () => {
-        const htmlEl = document.documentElement;
-        if (htmlEl.getAttribute("data-theme") === "dark") {
-          htmlEl.removeAttribute("data-theme");
-          darkModeToggle.textContent = "Dark Mode";
-        } else {
-          htmlEl.setAttribute("data-theme", "dark");
-          darkModeToggle.textContent = "Light Mode";
-        }
-      };
-
-  </script>
 
     <h1>About Me</h1>
     <p>Hey! I'm Ethan Tang. I code stuff, make cool projects, and occasionally do things that shouldn't work but somehow do.</p>
