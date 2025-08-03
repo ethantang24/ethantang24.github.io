@@ -18,25 +18,6 @@
   --keyboard-key-hover-bg: #ddd;
 }
 
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --nav-bg-color: #1e1e1e;
-  --nav-border-color: #333;
-  --link-color: #aaa;
-  --link-hover-color: #fff;
-  --button-bg: transparent;
-  --button-border: #888;
-  --button-color: #ccc;
-  --button-hover-bg: #333;
-  --button-hover-color: #eee;
-  --p-color: #bbb;
-  --h1-color: #ccc;
-  --navbar-link-color: #ccc;
-  --navbar-link-hover: #fff;
-  --keyboard-key-bg: #333;
-  --keyboard-key-hover-bg: #444;
-}
 
 body {
   font-family: 'Arial', sans-serif;
