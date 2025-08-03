@@ -1,264 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>bday cntdwn</title>
-<style>
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background: #222;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-  }
-
-  h1 {
-    margin-bottom: 40px;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #f5a623;
-    text-shadow: 0 0 10px #f5a623aa;
-  }
-
-  .countdown {
-    display: flex;
-    gap: 20px;
-  }
-
-  .countdown-section {
-    text-align: center;
-  }
-
-  .flip-card {
-    position: relative;
-    width: 80px;
-    height: 100px;
-    perspective: 400px;
-    cursor: default;
-    user-select: none;
-  }
-
-  .top, .bottom {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    background: #333;
-    line-height: 50px;
-    font-size: 48px;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: inset 0 -4px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  .top {
-    top: 0;
-    border-bottom: 1px solid #000;
-    border-radius: 8px 8px 0 0;
-    z-index: 2;
-    overflow: hidden;
-  }
-
-  .bottom {
-    bottom: 0;
-    border-top: 1px solid #000;
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-  }
-
-  .flip-top, .flip-bottom {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    background: #333;
-    left: 0;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    box-shadow: inset 0 -4px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  .flip-top {
-    top: 0;
-    transform-origin: bottom;
-    transform-style: preserve-3d;
-    z-index: 5;
-  }
-
-  .flip-bottom {
-    bottom: 0;
-    transform-origin: top;
-    transform-style: preserve-3d;
-  }
-
-  .countdown-section span {
-    display: block;
-    margin-top: 10px;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: #aaa;
-  }
-
-  @keyframes flipTop {
-    0% {
-      transform: rotateX(0deg);
+  <meta charset="UTF-8" />
+  <title>Birthday Countdown</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
     }
-    100% {
-      transform: rotateX(-90deg);
-    }
-  }
 
-  @keyframes flipBottom {
-    0% {
-      transform: rotateX(90deg);
+    h1 {
+      margin-bottom: 40px;
+      font-size: 2rem;
     }
-    100% {
-      transform: rotateX(0deg);
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
     }
-  }
-</style>
+
+    .time-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .flip {
+      background: #1e293b;
+      padding: 20px 30px;
+      font-size: 3rem;
+      border-radius: 12px;
+      position: relative;
+      perspective: 1000px;
+      animation: flip 0.6s ease-in-out;
+      display: inline-block;
+      min-width: 80px;
+    }
+
+    @keyframes flip {
+      0% {
+        transform: rotateX(0deg);
+      }
+      50% {
+        transform: rotateX(180deg);
+      }
+      100% {
+        transform: rotateX(360deg);
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #94a3b8;
+    }
+  </style>
 </head>
 <body>
-
-<h1>Countdown to my birthday</h1>
-<h3>just something random</h3>
-<a href="/index.html">back to home</a>
-<div class="countdown">
-  <div class="countdown-section">
-    <div class="flip-card" id="months">
-      <div class="top">00</div>
-      <div class="bottom">00</div>
-      <div class="flip-top"></div>
-      <div class="flip-bottom"></div>
-    </div>
-    <span>Months</span>
+  <h1>bday countdown</h1>
+  <a href="/index.html">back to home</a>
+  <h3>something random i did for fun</h3>
+  <div class="countdown">
+    <div class="time-card"><span class="flip" id="days">00</span><p>Days</p></div>
+    <div class="time-card"><span class="flip" id="hours">00</span><p>Hours</p></div>
+    <div class="time-card"><span class="flip" id="minutes">00</span><p>Minutes</p></div>
+    <div class="time-card"><span class="flip" id="seconds">00</span><p>Seconds</p></div>
   </div>
 
-  <div class="countdown-section">
-    <div class="flip-card" id="days">
-      <div class="top">00</div>
-      <div class="bottom">00</div>
-      <div class="flip-top"></div>
-      <div class="flip-bottom"></div>
-    </div>
-    <span>Days</span>
-  </div>
+  <script>
+    // Set your birthday here! Format: YYYY-MM-DDTHH:MM:SS
+    const birthday = new Date("2025-12-25T00:00:00");
 
-  <div class="countdown-section">
-    <div class="flip-card" id="hours">
-      <div class="top">00</div>
-      <div class="bottom">00</div>
-      <div class="flip-top"></div>
-      <div class="flip-bottom"></div>
-    </div>
-    <span>Hours</span>
-  </div>
+    function updateCountdown() {
+      const now = new Date();
+      const diff = birthday - now;
 
-  <div class="countdown-section">
-    <div class="flip-card" id="minutes">
-      <div class="top">00</div>
-      <div class="bottom">00</div>
-      <div class="flip-top"></div>
-      <div class="flip-bottom"></div>
-    </div>
-    <span>Minutes</span>
-  </div>
+      if (diff <= 0) {
+        document.querySelector(".countdown").innerHTML = "🎉 Happy Birthday!";
+        return;
+      }
 
-  <div class="countdown-section">
-    <div class="flip-card" id="seconds">
-      <div class="top">00</div>
-      <div class="bottom">00</div>
-      <div class="flip-top"></div>
-      <div class="flip-bottom"></div>
-    </div>
-    <span>Seconds</span>
-  </div>
-</div>
+      const seconds = Math.floor((diff / 1000) % 60);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const hours = Math.floor((diff / 1000 / 60 / 60) % 24);
+      const days = Math.floor(diff / 1000 / 60 / 60 / 24);
 
-<script>
-  const birthday = new Date('2025-09-24T00:00:00'); // Your birthday
-
-  function pad(num) {
-    return num < 10 ? '0' + num : num;
-  }
-
-  function flip(card, newValue) {
-    const top = card.querySelector('.top');
-    const bottom = card.querySelector('.bottom');
-    const flipTop = card.querySelector('.flip-top');
-    const flipBottom = card.querySelector('.flip-bottom');
-
-    if (top.textContent === newValue) return;
-
-    flipTop.textContent = top.textContent;
-    flipBottom.textContent = newValue;
-
-    flipTop.style.animation = 'flipTop 0.5s forwards';
-    flipBottom.style.animation = 'flipBottom 0.5s forwards';
-
-    flipTop.addEventListener('animationend', () => {
-      top.textContent = newValue;
-      bottom.textContent = newValue;
-      flipTop.style.animation = '';
-      flipBottom.style.animation = '';
-    }, { once: true });
-  }
-
-  function getMonthsDifference(start, end) {
-    let months;
-    months = (end.getFullYear() - start.getFullYear()) * 12;
-    months -= start.getMonth();
-    months += end.getMonth();
-
-    if (end.getDate() < start.getDate()) {
-      months--;
-    }
-    return months >= 0 ? months : 0;
-  }
-
-  function updateCountdown() {
-    const now = new Date();
-    if (now >= birthday) {
-      flip(document.getElementById('months'), '00');
-      flip(document.getElementById('days'), '00');
-      flip(document.getElementById('hours'), '00');
-      flip(document.getElementById('minutes'), '00');
-      flip(document.getElementById('seconds'), '00');
-      return;
+      flipNum("days", days);
+      flipNum("hours", hours);
+      flipNum("minutes", minutes);
+      flipNum("seconds", seconds);
     }
 
-    const months = getMonthsDifference(now, birthday);
+    function flipNum(id, value) {
+      const el = document.getElementById(id);
+      const newVal = String(value).padStart(2, "0");
+      if (el.textContent !== newVal) {
+        el.classList.remove("flip");
+        void el.offsetWidth; // trigger reflow
+        el.classList.add("flip");
+        el.textContent = newVal;
+      }
+    }
 
-    let tempDate = new Date(now);
-    tempDate.setMonth(tempDate.getMonth() + months);
-
-    let diffMs = birthday - tempDate;
-
-    const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
-    diffMs -= days * (1000 * 60 * 60 * 24);
-
-    const hours = Math.floor(diffMs / (1000 * 60 * 60));
-    diffMs -= hours * (1000 * 60 * 60);
-
-    const minutes = Math.floor(diffMs / (1000 * 60));
-    diffMs -= minutes * (1000 * 60);
-
-    const seconds = Math.floor(diffMs / 1000);
-
-    flip(document.getElementById('months'), pad(months));
-    flip(document.getElementById('days'), pad(days));
-    flip(document.getElementById('hours'), pad(hours));
-    flip(document.getElementById('minutes'), pad(minutes));
-    flip(document.getElementById('seconds'), pad(seconds));
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
