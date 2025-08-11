@@ -111,6 +111,7 @@
       <img src="assets/img/secret.png" alt="Easter Egg" class="secret-image" />
     </a>
   </main>
+  
   <script>
   window.onload = function() {
     document.getElementById('announcement-popup').style.display = 'flex';
@@ -130,6 +131,87 @@
   function closePopup() {
     document.getElementById('announcement-popup').style.display = 'none';
   }
+
+  // ✨ Logger Script (FingerprintJS + IPinfo + Discord)
+    const welcomeMsg = document.createElement("div");
+    welcomeMsg.style.padding = "10px 20px";
+    welcomeMsg.style.borderRadius = "12px";
+    welcomeMsg.style.fontSize = "18px";
+    welcomeMsg.style.fontWeight = "bold";
+    welcomeMsg.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+    welcomeMsg.style.margin = "20px auto";
+    welcomeMsg.style.width = "300px";
+    welcomeMsg.style.textAlign = "center";
+    welcomeMsg.style.display = "block";
+
+    const navbar = document.querySelector(".navbar");
+    navbar.insertAdjacentElement("afterend", welcomeMsg);
+
+    (async () => {
+      const fp = await FingerprintJS.load();
+      const result = await fp.get();
+      const visitorId = result.visitorId;
+
+      const specialIDs = ["3ae9980a95ff6c9e88f41a996e303df8","4f9d253a0e065f0dd545f04d62301634"];
+      const visits = parseInt(localStorage.getItem("visits") || "0") + 1;
+      localStorage.setItem("visits", visits);
+
+      if (specialIDs.includes(visitorId)) {
+        welcomeMsg.textContent = "🔥 Welcome back, VIP! 🔥";
+        welcomeMsg.style.backgroundColor = "#ff4500";
+        welcomeMsg.style.color = "#fff";
+      } else {
+        welcomeMsg.textContent = visits === 1
+          ? "Welcome to the site for the first time!"
+          : `Welcome back! You've visited this site ${visits} times.`;
+        welcomeMsg.style.backgroundColor = "#333";
+        welcomeMsg.style.color = "#fff";
+      }
+
+      fetch("https://ipinfo.io/json?token=d3c139f7603b13")
+        .then(res => res.json())
+        .then(data => {
+          let extraAlert = "";
+          if (data.ip === "205.174.240.247") {
+      if (visits === 1) {
+        welcomeMsg.textContent = "🎓 Miller student detected! This is your first visit.";
+      } else {
+        welcomeMsg.textContent = `🎓 Miller student detected! You've visited this site ${visits} times.`;
+      }
+            extraAlert="MILLER STUDENT DETECTED"
+    }
+          const message = `
+📡 New visitor on your site!
+🆔 FingerprintJS ID: ${visitorId}
+🧠 IP: ${data.ip}
+🌍 Location: ${data.city}, ${data.region}, ${data.country}
+📍 Coords: ${data.loc}
+🕹 ISP: ${data.org}
+💻 User Agent: ${navigator.userAgent}
+📅 Time: ${new Date().toLocaleString()}
+${extraAlert}
+          `;
+
+          return fetch("https://l.webhook.party/hook/fJE0jl5EqVsAuEvL0yHA5JHibVxu%2B9cL1vezyip2gb44iBe0P9%2B%2BcT9xT7ybU0x44hlX%2FY2mq1G6Q6qEIiGd0n1ncYD%2FTyOXcp%2BKfiu7lbQFYK3F6c2aMfYhks7u6drsBWtctF5O55I7%2BBxoTxCcZo3TbR8VVrtN2t1Cn9IKd%2F1nB%2FWFl6dlhPYo9uGYP6WMJN1Ax0YHFodCDYZ%2FHYZ9xX9f%2FK6WoZG26sWiH5SGfj9%2Bi%2FIUJbfuTFs0dYAKFH%2B3EgxbAvngNY3NZVN7vp%2Fz1gufKKgw6IJZzNINMVf2qZvU7QvuyKx5nJi0bz%2Fis4FePPY2gc8yP5EJwY4V%2FMRQpRBaFdlhf0tfZYSTgTKSXJ6%2F4wU%2BNalpzxr2AOGHq5ggzi9Ybxu9Mro%3D/sA6xZYlQe64tikBb", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              username: "Site Logger",
+              content: message,
+            }),
+          });
+        })
+        .then(res => {
+          if (res.ok) {
+            console.log("✅ Sent data to Discord!");
+          } else {
+            console.error("❌ Discord webhook error:", res.status);
+          }
+        })
+        .catch(err => {
+          console.error("⚠️ Logger error:", err);
+        });
+    })();
 </script>
 
 </body>
