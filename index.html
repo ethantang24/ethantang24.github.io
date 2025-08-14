@@ -14,7 +14,7 @@
 <body>
   <div id="announcement-popup" class="popup-overlay">
   <div class="popup-content">
-    <span id="close-btn" class="close-btn" onclick="closePopup()" style="pointer-events: none; opacity: 0.5;">&times;</span>
+    <span id="close-btn" class="close-btn">&times;</span>
     <h3>Legal Notice</h3>
     <p>
       This website has been developed exclusively for educational purposes. Any misuse, unauthorized activity, or unlawful behavior conducted through this site is the sole responsibility of the user. By proceeding, you acknowledge and accept these terms. Sorry, I have to put this here.
@@ -77,20 +77,22 @@
   };
 
 
-  window.onload = function() {
+  window.onload = function () {
     document.getElementById('announcement-popup').style.display = 'flex';
-
-    // Disable close button initially
+  
     const closeBtn = document.getElementById('close-btn');
-    closeBtn.style.pointerEvents = 'none';  // Disable clicking
-    closeBtn.style.opacity = '0.5';          // Make it look disabled
-
+    closeBtn.style.pointerEvents = 'none';
+    closeBtn.style.opacity = '0.5';
+  
     // Enable close button after 3 seconds
-    setTimeout(function() {
-      closeBtn.style.pointerEvents = 'auto';  // Enable clicking
-      closeBtn.style.opacity = '1';            // Restore opacity
+    setTimeout(function () {
+      closeBtn.style.pointerEvents = 'auto';
+      closeBtn.style.opacity = '1';
+  
+      // Attach the click event only after enabling
+      closeBtn.addEventListener('click', closePopup);
     }, 3000);
-  }
+  };
 
   function closePopup() {
     document.getElementById('announcement-popup').style.display = 'none';
