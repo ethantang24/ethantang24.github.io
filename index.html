@@ -40,11 +40,6 @@
     <h2>back for the 25-26 school year!</h2>
 
     <button id="launch-site-btn" class="gfiles-button">Launch Cloaked Site</button>
-    <!--
-    <input id="url-input" type="text" placeholder="Enter subpage URL(it has to be a subpage)" style="width: 300px; padding: 5px; margin-bottom: 5px;" />
-    <br />
-    <button id="download-btn" style="padding: 6px 12px; cursor: pointer;">Download HTML</button>
-    -->
     <p>Maybe check back later.</p>
 
     <a href="https://hits.sh/ethanytangcodes.github.io/"><img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/></a>
@@ -77,36 +72,10 @@
     iframe.style.margin = "0";
     iframe.referrerPolicy = "no-referrer";
     iframe.allow = "fullscreen";
-    iframe.src = "https://ethan-y-tang.github.io";
+    iframe.src = "https://ethanytangcodes.github.io";
     win.document.body.appendChild(iframe);
   };
 
-  <!-- 
-  document.getElementById("download-btn").onclick = async function () {
-    const url = document.getElementById("url-input").value.trim();
-    if (!url) {
-      alert("Please enter a URL.");
-      return;
-    }
-
-    try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error("Failed to fetch the URL.");
-
-      const html = await response.text();
-      const blob = new Blob([html], { type: "text/html" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "page.html";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (e) {
-      alert("Error: " + e.message + "\nMake sure the URL is from the same origin.");
-      console.error(e);
-    }
-  };
-  -->
 
   window.onload = function() {
     document.getElementById('announcement-popup').style.display = 'flex';
