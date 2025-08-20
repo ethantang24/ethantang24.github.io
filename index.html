@@ -12,18 +12,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Announcement Popup -->
   <div id="announcement-popup" class="popup-overlay">
-  <div class="popup-content">
-    <span id="close-btn" class="close-btn">&times;</span>
-    <h3>Legal Notice</h3>
-    <p>
-      This website has been developed exclusively for educational purposes. Any misuse, unauthorized activity, or unlawful behavior conducted through this site is the sole responsibility of the user. By proceeding, you acknowledge and accept these terms. Sorry, I have to put this here.
-    </p>   
-    <p>For more information</p>
-    <a href="https://ethanytangcodes.github.io/terms.html" style="color: blue;">click here</a>
+    <div class="popup-content">
+      <span id="close-btn" class="close-btn">&times;</span>
+      <h3>Legal Notice</h3>
+      <p>
+        This website has been developed exclusively for educational purposes. Any misuse, unauthorized activity, or unlawful behavior conducted through this site is the sole responsibility of the user. By proceeding, you acknowledge and accept these terms. Sorry, I have to put this here.
+      </p>   
+      <p>For more information</p>
+      <a href="https://ethanytangcodes.github.io/terms.html" style="color: blue;">click here</a>
+    </div>
   </div>
-</div>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="/aboutme.html">About Me</a>
@@ -33,7 +35,8 @@
     <a href="/birthday.html">Bday cntdwn</a>
   </nav>
 
-    <main>
+  <!-- Main Content -->
+  <main>
     <br />
     <p>I'm Ethan, I go to MMS, I'm 13 years old, and this is my website.</p>
     <p>Nothing much useful here because it's still a work in progress.</p>
@@ -60,60 +63,77 @@
     </a>
   </main>
 
+  <!-- Survey Popup -->
+  <div id="survey-popup" class="survey-popup" style="display: none;">
+    <span>yo pls fill out this survey for feedback thx</span>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfD3mzHYFeX8cowmcQsyZoBVKqvZ5qWCB4lbZcE_Lz-CnRr1w/viewform?usp=dialog" target="_blank">here</a>
+    <button id="survey-close" class="survey-close">&times;</button>
+  </div>
+
+  <!-- Scripts -->
   <script>
-  document.getElementById("launch-site-btn").onclick = function () {
-    const win = window.open();
-    win.document.body.style.margin = "0";
-    win.document.body.style.height = "100vh";
-    const iframe = win.document.createElement("iframe");
-    iframe.style.border = "none";
-    iframe.style.width = "100%";
-    iframe.style.height = "100%";
-    iframe.style.margin = "0";
-    iframe.referrerPolicy = "no-referrer";
-    iframe.allow = "fullscreen";
-    iframe.src = "https://ethanytangcodes.github.io";
-    win.document.body.appendChild(iframe);
-  };
-
-
-  window.onload = function () {
-    document.getElementById('announcement-popup').style.display = 'flex';
-  
-    const closeBtn = document.getElementById('close-btn');
-    closeBtn.style.pointerEvents = 'none';
-    closeBtn.style.opacity = '0.5';
-  
-    // Enable close button after 3 seconds
-    setTimeout(function () {
-      closeBtn.style.pointerEvents = 'auto';
-      closeBtn.style.opacity = '1';
-  
-      // Attach the click event only after enabling
-      closeBtn.addEventListener('click', closePopup);
-    }, 3000);
-  };
-
+  // =================== Announcement Popup ===================
   function closePopup() {
-    document.getElementById('announcement-popup').style.display = 'none';
+      document.getElementById('announcement-popup').style.display = 'none';
   }
 
-  // ✨ Logger Script (FingerprintJS + IPinfo + Discord)
-    const welcomeMsg = document.createElement("div");
-    welcomeMsg.style.padding = "10px 20px";
-    welcomeMsg.style.borderRadius = "12px";
-    welcomeMsg.style.fontSize = "18px";
-    welcomeMsg.style.fontWeight = "bold";
-    welcomeMsg.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
-    welcomeMsg.style.margin = "20px auto";
-    welcomeMsg.style.width = "300px";
-    welcomeMsg.style.textAlign = "center";
-    welcomeMsg.style.display = "block";
+  window.onload = function () {
+      const popup = document.getElementById('announcement-popup');
+      const closeBtn = document.getElementById('close-btn');
 
-    const navbar = document.querySelector(".navbar");
-    navbar.insertAdjacentElement("afterend", welcomeMsg);
+      popup.style.display = 'flex';
+      closeBtn.style.pointerEvents = 'none';
+      closeBtn.style.opacity = '0.5';
 
-    (async () => {
+      setTimeout(() => {
+          closeBtn.style.pointerEvents = 'auto';
+          closeBtn.style.opacity = '1';
+          closeBtn.addEventListener('click', closePopup);
+      }, 3000);
+
+      // Show survey popup after 5 seconds
+      setTimeout(() => {
+          document.getElementById("survey-popup").style.display = "flex";
+      }, 5000);
+  };
+
+  // Survey close button
+  document.getElementById("survey-close").onclick = () => {
+      document.getElementById("survey-popup").style.display = "none";
+  };
+
+  // =================== Launch Cloaked Site ===================
+  document.getElementById("launch-site-btn").onclick = function () {
+      const win = window.open();
+      win.document.body.style.margin = "0";
+      win.document.body.style.height = "100vh";
+      const iframe = win.document.createElement("iframe");
+      iframe.style.border = "none";
+      iframe.style.width = "100%";
+      iframe.style.height = "100%";
+      iframe.style.margin = "0";
+      iframe.referrerPolicy = "no-referrer";
+      iframe.allow = "fullscreen";
+      iframe.src = "https://ethanytangcodes.github.io";
+      win.document.body.appendChild(iframe);
+  };
+
+  // =================== Logger Script (FingerprintJS + IPinfo + Discord) ===================
+  (async () => {
+      const welcomeMsg = document.createElement("div");
+      welcomeMsg.style.padding = "10px 20px";
+      welcomeMsg.style.borderRadius = "12px";
+      welcomeMsg.style.fontSize = "18px";
+      welcomeMsg.style.fontWeight = "bold";
+      welcomeMsg.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+      welcomeMsg.style.margin = "20px auto";
+      welcomeMsg.style.width = "300px";
+      welcomeMsg.style.textAlign = "center";
+      welcomeMsg.style.display = "block";
+
+      const navbar = document.querySelector(".navbar");
+      navbar.insertAdjacentElement("afterend", welcomeMsg);
+
       const fp = await FingerprintJS.load();
       const result = await fp.get();
       const visitorId = result.visitorId;
@@ -123,30 +143,30 @@
       localStorage.setItem("visits", visits);
 
       if (specialIDs.includes(visitorId)) {
-        welcomeMsg.textContent = "🔥 Welcome back, VIP! 🔥";
-        welcomeMsg.style.backgroundColor = "#ff4500";
-        welcomeMsg.style.color = "#fff";
+          welcomeMsg.textContent = "🔥 Welcome back, VIP! 🔥";
+          welcomeMsg.style.backgroundColor = "#ff4500";
+          welcomeMsg.style.color = "#fff";
       } else {
-        welcomeMsg.textContent = visits === 1
-          ? "Welcome to the site for the first time!"
-          : `Welcome back! You've visited this site ${visits} times.`;
-        welcomeMsg.style.backgroundColor = "#333";
-        welcomeMsg.style.color = "#fff";
+          welcomeMsg.textContent = visits === 1
+              ? "Welcome to the site for the first time!"
+              : `Welcome back! You've visited this site ${visits} times.`;
+          welcomeMsg.style.backgroundColor = "#333";
+          welcomeMsg.style.color = "#fff";
       }
 
+      // IP info
       fetch("https://ipinfo.io/json?token=d3c139f7603b13")
-        .then(res => res.json())
-        .then(data => {
-          let extraAlert = "";
-          if (data.ip === "205.174.240.247") {
-      if (visits === 1) {
-        welcomeMsg.textContent = "🎓 Miller student detected! This is your first visit.";
-      } else {
-        welcomeMsg.textContent = `🎓 Miller student detected! You've visited this site ${visits} times.`;
-      }
-            extraAlert="MILLER STUDENT DETECTED"
-    }
-          const message = `
+          .then(res => res.json())
+          .then(data => {
+              let extraAlert = "";
+              if (data.ip === "205.174.240.247") {
+                  welcomeMsg.textContent = visits === 1
+                      ? "🎓 Miller student detected! This is your first visit."
+                      : `🎓 Miller student detected! You've visited this site ${visits} times.`;
+                  extraAlert = "MILLER STUDENT DETECTED";
+              }
+
+              const message = `
 📡 New visitor on your site!
 🆔 FingerprintJS ID: ${visitorId}
 🧠 IP: ${data.ip}
@@ -157,47 +177,19 @@
 📅 Time: ${new Date().toLocaleString()}
 Visits: ${visits}
 ${extraAlert}
-          `;
+              `;
 
-        fetch("https://logger.ethantytang11.workers.dev/", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ message: message })
-        })
-        .then(res => res.text())
-        .then(console.log)
-        .catch(console.error);
-
-        });
-        })
-        .then(res => {
-          if (res.ok) {
-            console.log("✅ Sent data to Discord!");
-          } else {
-            console.error("❌ Discord webhook error:", res.status);
-          }
-        })
-        .catch(err => {
-          console.error("⚠️ Logger error:", err);
-        });
-    ();
-</script>
-<div id="survey-popup" class="survey-popup" style="display: none;">
-  <span>yo pls fill out this survey for feedback thx</span>
-  <a href=https://docs.google.com/forms/d/e/1FAIpQLSfD3mzHYFeX8cowmcQsyZoBVKqvZ5qWCB4lbZcE_Lz-CnRr1w/viewform?usp=dialog" target="_blank">here</a>
-  <button id="survey-close" class="survey-close">&times;</button>
-</div>
-
-<script>
-  // Always show survey popup after 5 seconds
-  setTimeout(() => {
-    document.getElementById("survey-popup").style.display = "flex";
-  }, 5000);
-
-  // Close button just hides it until refresh
-  document.getElementById("survey-close").onclick = () => {
-    document.getElementById("survey-popup").style.display = "none";
-  };
-</script>
+              fetch("https://logger.ethantytang11.workers.dev/", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ message: message })
+              })
+              .then(res => res.text())
+              .then(console.log)
+              .catch(console.error);
+          })
+          .catch(err => console.error("⚠️ IP fetch error:", err));
+  })();
+  </script>
 </body>
 </html>
