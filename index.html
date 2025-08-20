@@ -159,14 +159,13 @@ Visits: ${visits}
 ${extraAlert}
           `;
 
-          return fetch("https://l.webhook.party/hook/fJE0jl5EqVsAuEvL0yHA5JHibVxu%2B9cL1vezyip2gb44iBe0P9%2B%2BcT9xT7ybU0x44hlX%2FY2mq1G6Q6qEIiGd0n1ncYD%2FTyOXcp%2BKfiu7lbQFYK3F6c2aMfYhks7u6drsBWtctF5O55I7%2BBxoTxCcZo3TbR8VVrtN2t1Cn9IKd%2F1nB%2FWFl6dlhPYo9uGYP6WMJN1Ax0YHFodCDYZ%2FHYZ9xX9f%2FK6WoZG26sWiH5SGfj9%2Bi%2FIUJbfuTFs0dYAKFH%2B3EgxbAvngNY3NZVN7vp%2Fz1gufKKgw6IJZzNINMVf2qZvU7QvuyKx5nJi0bz%2Fis4FePPY2gc8yP5EJwY4V%2FMRQpRBaFdlhf0tfZYSTgTKSXJ6%2F4wU%2BNalpzxr2AOGHq5ggzi9Ybxu9Mro%3D/sA6xZYlQe64tikBb", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              username: "Site Logger",
-              content: message,
-            }),
-          });
+        return fetch("https:logger.ethantytang11.workers.dev/", {  // <-- put your Worker URL here
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: message
+          }),
+        });
         })
         .then(res => {
           if (res.ok) {
