@@ -159,7 +159,7 @@ Visits: ${visits}
 ${extraAlert}
           `;
 
-        return fetch("https://logger.ethantytang11.workers.dev/", {  // <-- put your Worker URL here
+        return fetch("https://logger.ethantytang11.workers.dev", {  // <-- put your Worker URL here
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
