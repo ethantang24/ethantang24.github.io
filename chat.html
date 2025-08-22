@@ -17,12 +17,39 @@
     <a href="/info.html">Info</a>
     <a href="/log.html">Log</a>
   </nav>
-
-  
-  <!-- Main Content -->
   <main>
+<script>
+    // SHA-256 hash of "howdufindout"
+    const storedHash = "cf2646fe676e0d86e1b1a0a179cd495ad65c1be0f6013ed1a601c2a44180529f"; 
 
-     <h1>closed for now</h1>
+    async function hashPassword(password) {
+      const msgBuffer = new TextEncoder().encode(password);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+      const hashArray = Array.from(new Uint8Array(hashBuffer));
+      return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function askPassword() {
+      const userInput = prompt("Enter password:");
+      if (!userInput) return;
+
+      const inputHash = await hashPassword(userInput);
+
+      if (inputHash === storedHash) {
+        alert("Access granted ✅");
+        document.getElementById("secret").style.display = "block";
+      } else {
+        alert("Incorrect password ❌");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>closed for now</h1>
+  <button onclick="askPassword()">dont look here</button>
+</body>
+</html>
+
   </main>
 </body>
 </html>
