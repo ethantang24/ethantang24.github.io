@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="fluid"></canvas>
   <!-- Announcement Popup -->
   <div id="announcement-popup" class="popup-overlay">
     <div class="popup-content">
@@ -193,6 +194,10 @@ ${extraAlert}
           })
           .catch(err => console.error("⚠️ IP fetch error:", err));
   })();
+  </script>
+  <script type="module">
+    import useFluidCursor from './fluid.js';
+    useFluidCursor();
   </script>
 </body>
 </html>
