@@ -45,6 +45,7 @@
   </style>
 </head>
 <body>
+  <canvas id="fluid"></canvas>
   <button id="returnHome" onclick="goHome()">Return to Home</button>
   <br>
   <h1>Terms and Conditions</h1>
@@ -146,6 +147,10 @@
     function goHome() {
   window.location.href = "/index.html"; // Change to your actual homepage path if different
 }
+  </script>
+  <script type="module">
+    import useFluidCursor from './fluid.js';
+    useFluidCursor();
   </script>
 </body>
 </html>
