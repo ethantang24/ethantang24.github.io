@@ -10,6 +10,7 @@
 </head>
 <body>
   <!-- Navbar -->
+  <canvas id="fluid"></canvas>
   <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="/about.html">About Me</a>
@@ -51,6 +52,10 @@
         }
       }
     </script>
+    <script type="module">
+    import useFluidCursor from './fluid.js';
+    useFluidCursor();
+  </script>
   </main>
 </body>
 </html>
