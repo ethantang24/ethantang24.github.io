@@ -67,6 +67,7 @@
   </style>
 </head>
 <body>
+  <canvas id="fluid"></canvas>
   <h1>birthday countdown</h1>
   <h2>something random i made for fun</h2>
   <a href="/">back to home</a>
@@ -123,6 +124,10 @@
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
+  </script>
+  <script type="module">
+    import useFluidCursor from './fluid.js';
+    useFluidCursor();
   </script>
 </body>
 </html>
