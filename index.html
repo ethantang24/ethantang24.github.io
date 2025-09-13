@@ -77,29 +77,47 @@
   <!-- Scripts -->
   <script>
   // =================== Announcement Popup ===================
-  function closePopup() {
-      document.getElementById('announcement-popup').style.display = 'none';
-  }
+  function openPopup() {
+    const popup = document.getElementById('announcement-popup');
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // lock background scroll
+}
+
+function closePopup() {
+    document.getElementById('announcement-popup').style.display = 'none';
+    document.body.style.overflow = ''; // restore scroll
+}
+
 
   window.onload = function () {
-      const popup = document.getElementById('announcement-popup');
-      const closeBtn = document.getElementById('close-btn');
+    const popup = document.getElementById('announcement-popup');
+    const closeBtn = document.getElementById('close-btn');
 
-      popup.style.display = 'flex';
-      closeBtn.style.pointerEvents = 'none';
-      closeBtn.style.opacity = '0.5';
+    // Open popup
+    popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // <-- lock background scroll
 
-      setTimeout(() => {
-          closeBtn.style.pointerEvents = 'auto';
-          closeBtn.style.opacity = '1';
-          closeBtn.addEventListener('click', closePopup);
-      }, 3000);
+    // Disable close button for 3s
+    closeBtn.style.pointerEvents = 'none';
+    closeBtn.style.opacity = '0.5';
 
-      // Show survey popup after 5 seconds
-      setTimeout(() => {
-          document.getElementById("survey-popup").style.display = "flex";
-      }, 5000);
-  };
+    setTimeout(() => {
+        closeBtn.style.pointerEvents = 'auto';
+        closeBtn.style.opacity = '1';
+        closeBtn.addEventListener('click', () => {
+            closePopup();
+            document.body.style.overflow = ''; // <-- restore scroll
+        });
+    }, 3000);
+
+    // Show survey popup after 5 seconds
+    setTimeout(() => {
+        const survey = document.getElementById("survey-popup");
+        survey.style.display = "flex";
+        document.body.style.overflow = 'hidden'; // lock background for survey too
+    }, 4000);
+};
+
 
   // Survey close button
   document.getElementById("survey-close").onclick = () => {
