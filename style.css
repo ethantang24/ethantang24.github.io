@@ -196,6 +196,28 @@ p {
   margin: 5px 0 0;
 }
 
+.survey-popup {
+  position: fixed;
+  left: 50%;
+  bottom: -200px;        /* start off-screen */
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 16px 24px;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  font-family: sans-serif;
+  transition: bottom 0.5s ease; /* slide up effect */
+}
+
+.survey-popup.show {
+  bottom: 0; /* slide up to bottom */
+}
+
 .survey-popup a {
   color: #4CAF50;
   font-weight: bold;
@@ -207,13 +229,14 @@ p {
 }
 
 .survey-close {
-  margin-left: 15px;
   background: none;
   border: none;
   color: #fff;
   font-size: 18px;
   cursor: pointer;
+  margin-left: 10px;
 }
+
 
 @keyframes slideUp {
   from { transform: translateY(100%); }
