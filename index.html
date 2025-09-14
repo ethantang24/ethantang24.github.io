@@ -59,14 +59,13 @@
   <script>
 
     setTimeout(() => {
-    const survey = document.getElementById("survey-popup");
-    survey.classList.add("show");   // slide up popup
+  document.getElementById("survey-popup").classList.add("show");
 }, 1000);
 
 document.getElementById("survey-close").onclick = () => {
-    const survey = document.getElementById("survey-popup");
-    survey.classList.remove("show"); // slide down and hide
+  document.getElementById("survey-popup").classList.remove("show");
 };
+
     
     
   (async () => {
