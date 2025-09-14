@@ -50,21 +50,23 @@
     </a>
   </main>
 
-  <div id="survey-popup" class="survey-popup" style="display: none;">
-    <span>yo pls fill out this survey for feedback thx</span>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScDuLLtm7qWruDL31I9IO2doAh6S89Rb-n9vi_Ufp0CowYwfQ/viewform?usp=dialog" target="_blank">here</a>
-    <button id="survey-close" class="survey-close">&times;</button>
-  </div>
+  <div id="survey-popup" class="survey-popup">
+  <span>pls fill out this survey for feedback 👀</span>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScDuLLtm7qWruDL31I9IO2doAh6S89Rb-n9vi_Ufp0CowYwfQ/viewform?usp=dialog" target="_blank">here</a>
+  <button id="survey-close" class="survey-close">&times;</button>
+</div>
+
   <script>
 
     setTimeout(() => {
-        const survey = document.getElementById("survey-popup");
-        survey.style.display = "flex";
-    }, 4000);
+    const survey = document.getElementById("survey-popup");
+    survey.classList.add("show");   // slide up popup
+}, 4000);
 
-  document.getElementById("survey-close").onclick = () => {
-      document.getElementById("survey-popup").style.display = "none";
-  };
+document.getElementById("survey-close").onclick = () => {
+    const survey = document.getElementById("survey-popup");
+    survey.classList.remove("show"); // slide down and hide
+};
     
     
   (async () => {
