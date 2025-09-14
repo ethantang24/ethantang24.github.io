@@ -30,8 +30,7 @@
     <p>Nothing much useful here because it's still a work in progress.</p>
     <h2>back for the 25-26 school year!</h2>
     <p>by entering this site, you agree to the</p>
-    <a href="/terms.html/">terms of service</a>
-    <button id="launch-site-btn" class="gfiles-button">Launch Cloaked Site</button>
+    <a href="/terms.html">terms of service</a>
     <a href="https://hits.sh/ethanytangcodes.github.io/"><img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/></a>
     <h1 id="projects">Made by Ethan Tang</h1>
 
@@ -69,20 +68,6 @@
       document.getElementById("survey-popup").style.display = "none";
   };
     
-  document.getElementById("launch-site-btn").onclick = function () {
-      const win = window.open();
-      win.document.body.style.margin = "0";
-      win.document.body.style.height = "100vh";
-      const iframe = win.document.createElement("iframe");
-      iframe.style.border = "none";
-      iframe.style.width = "100%";
-      iframe.style.height = "100%";
-      iframe.style.margin = "0";
-      iframe.referrerPolicy = "no-referrer";
-      iframe.allow = "fullscreen";
-      iframe.src = "https://ethanytangcodes.github.io";
-      win.document.body.appendChild(iframe);
-  };
     
   (async () => {
       const welcomeMsg = document.createElement("div");
