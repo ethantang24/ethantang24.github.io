@@ -175,13 +175,14 @@ ${extraAlert}
   // Apply state on load
   applyState();
 
-  // 🔹 Toggle + save state
+  // 🔹 Toggle + save state + reload
   toggleBtn.addEventListener("click", () => {
     cursorEnabled = cursorEnabled === "true" ? "false" : "true";
     localStorage.setItem("cursorEnabled", cursorEnabled);
-    applyState();
+    location.reload(); // refresh to restart fluid.js cleanly
   });
 </script>
+
 
 </body>
 </html>
