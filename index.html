@@ -151,36 +151,6 @@ ${extraAlert}
   <script type="module">
  import useFluidCursor from './fluid.js';
   useFluidCursor();
-
-  const toggleBtn = document.getElementById("cursorToggle");
-  const canvas = document.getElementById("fluid");
-
-  // 🔹 Check localStorage when page loads
-  let cursorEnabled = localStorage.getItem("cursorEnabled");
-  if (cursorEnabled === null) {
-    cursorEnabled = "true"; // default is enabled
-    localStorage.setItem("cursorEnabled", cursorEnabled);
-  }
-
-  function applyState() {
-    if (cursorEnabled === "true") {
-      canvas.style.display = "block";
-      toggleBtn.textContent = "Disable Cursor";
-    } else {
-      canvas.style.display = "none";
-      toggleBtn.textContent = "Enable Cursor";
-    }
-  }
-
-  // Apply state on load
-  applyState();
-
-  // 🔹 Toggle + save state
-  toggleBtn.addEventListener("click", () => {
-    cursorEnabled = cursorEnabled === "true" ? "false" : "true";
-    localStorage.setItem("cursorEnabled", cursorEnabled);
-    applyState();
-  });
 </script>
 
 
