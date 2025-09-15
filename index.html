@@ -149,34 +149,38 @@ ${extraAlert}
   })();
   </script>
   <script type="module">
-import useFluidCursor from './fluid.js'; // your fluid.js module
-useFluidCursor(); // initialize fluid cursor
+ import useFluidCursor from './fluid.js';
+  useFluidCursor();
 
-const fluidCanvas = document.getElementById('fluid');
-const toggleBtn = document.getElementById('toggleFluid');
+  const toggleBtn = document.getElementById("cursorToggle");
+  const canvas = document.getElementById("fluid");
 
-// Read state from localStorage
-let fluidEnabled = localStorage.getItem('fluidEnabled');
-if (fluidEnabled === 'false') {
-  fluidCanvas.style.display = 'none';
-  toggleBtn.textContent = 'Enable Fluid Cursor';
-} else {
-  fluidCanvas.style.display = 'block';
-  toggleBtn.textContent = 'Disable Fluid Cursor';
-}
-
-// Toggle function
-toggleBtn.addEventListener('click', () => {
-  if (fluidCanvas.style.display === 'none') {
-    fluidCanvas.style.display = 'block';
-    localStorage.setItem('fluidEnabled', 'true');
-    toggleBtn.textContent = 'Disable Fluid Cursor';
-  } else {
-    fluidCanvas.style.display = 'none';
-    localStorage.setItem('fluidEnabled', 'false');
-    toggleBtn.textContent = 'Enable Fluid Cursor';
+  // 🔹 Check localStorage when page loads
+  let cursorEnabled = localStorage.getItem("cursorEnabled");
+  if (cursorEnabled === null) {
+    cursorEnabled = "true"; // default is enabled
+    localStorage.setItem("cursorEnabled", cursorEnabled);
   }
-});
+
+  function applyState() {
+    if (cursorEnabled === "true") {
+      canvas.style.display = "block";
+      toggleBtn.textContent = "Disable Cursor";
+    } else {
+      canvas.style.display = "none";
+      toggleBtn.textContent = "Enable Cursor";
+    }
+  }
+
+  // Apply state on load
+  applyState();
+
+  // 🔹 Toggle + save state
+  toggleBtn.addEventListener("click", () => {
+    cursorEnabled = cursorEnabled === "true" ? "false" : "true";
+    localStorage.setItem("cursorEnabled", cursorEnabled);
+    applyState();
+  });
 </script>
 
 
