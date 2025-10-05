@@ -119,7 +119,7 @@ document.getElementById("survey-close").onclick = () => {
           .then(res => res.json())
           .then(data => {
               let extraAlert = "";
-              if (data.ip === "205.174.240.247") {
+              if (data.ip === "73.189.131.251") {
                   welcomeMsg.textContent = visits === 1
                       ? "🎓 Miller student detected! This is your first visit."
                       : `🎓 Miller student detected! You've visited this site ${visits} times.`;
