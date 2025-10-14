@@ -1,128 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>bday countdown</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    h1 {
-      font-weight: 400;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #0ff;
-    }
-
-    .countdown {
-      display: flex;
-      gap: 20px;
-    }
-
-    .flip-unit {
-      text-align: center;
-    }
-
-    .flip-unit .label {
-      font-size: 0.9rem;
-      margin-top: 10px;
-      color: #aaa;
-    }
-
-    .flip-card {
-      position: relative;
-      width: 80px;
-      height: 100px;
-      background: #222;
-      border-radius: 6px;
-      overflow: hidden;
-      box-shadow: inset 0 -4px 8px rgba(0,0,0,0.4);
-      font-size: 2.5rem;
-      line-height: 100px;
-      text-align: center;
-      font-weight: bold;
-      color: #0ff;
-      transition: all 0.3s ease;
-    }
-
-    .flip-card.flipped {
-      animation: flip 0.5s ease;
-    }
-
-    @keyframes flip {
-      0%   { transform: rotateX(0deg); }
-      50%  { transform: rotateX(90deg); }
-      100% { transform: rotateX(0deg); }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Countdown - Ethan Tang</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>birthday countdown</h1>
-  <h2>something random i made for fun</h2>
-  <a href="/">back to home</a>
 
-  <div class="countdown">
-    <div class="flip-unit">
-      <div id="days" class="flip-card">00</div>
-      <div class="label">Days</div>
-    </div>
-    <div class="flip-unit">
-      <div id="hours" class="flip-card">00</div>
-      <div class="label">Hours</div>
-    </div>
-    <div class="flip-unit">
-      <div id="minutes" class="flip-card">00</div>
-      <div class="label">Minutes</div>
-    </div>
-    <div class="flip-unit">
-      <div id="seconds" class="flip-card">00</div>
-      <div class="label">Seconds</div>
-    </div>
+<canvas id="fluid-canvas"></canvas>
+
+<header class="navbar">
+  <h1 class="logo">Ethan Tang</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="log.html">Log</a>
+    <a href="countdown.html" class="active">Countdown</a>
+  </nav>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<main class="content">
+  <section class="intro">
+    <h2>Birthday Countdown</h2>
+    <p>Counting down to my birthday: September 24 🎉</p>
+    <div id="countdown" class="countdown"></div>
+  </section>
+</main>
+
+<div id="survey-popup" class="popup">
+  <span class="close-btn" id="close-popup">✖</span>
+  <p>Help improve this site!</p>
+  <a href="#" class="popup-btn">Take Survey</a>
+</div>
+
+<div id="welcome-popup" class="popup-center">
+  <div class="popup-box">
+    <h3>Welcome!</h3>
+    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
+    <button id="enter-btn">Let's Go!</button>
   </div>
+</div>
 
-  <script>
-    const targetTime = new Date("2026-09-24T00:00:00").getTime();
-
-
-    const flip = (el, val) => {
-      if (el.textContent !== val) {
-        el.classList.remove('flipped');
-        void el.offsetWidth; // force reflow
-        el.textContent = val;
-        el.classList.add('flipped');
-      }
-    };
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      let diff = Math.max(0, targetTime - now);
-
-      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-      diff %= (1000 * 60 * 60 * 24);
-      const h = Math.floor(diff / (1000 * 60 * 60));
-      diff %= (1000 * 60 * 60);
-      const m = Math.floor(diff / (1000 * 60));
-      diff %= (1000 * 60);
-      const s = Math.floor(diff / 1000);
-
-      flip(document.getElementById('days'), String(d).padStart(2, '0'));
-      flip(document.getElementById('hours'), String(h).padStart(2, '0'));
-      flip(document.getElementById('minutes'), String(m).padStart(2, '0'));
-      flip(document.getElementById('seconds'), String(s).padStart(2, '0'));
-    };
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
+<script src="script.js" defer></script>
 </body>
 </html>
