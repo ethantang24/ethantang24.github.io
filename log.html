@@ -1,7 +1,12 @@
----
-layout: default
-title: Log
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log - Ethan Tang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <canvas id="fluid-canvas"></canvas>
 
@@ -31,14 +36,26 @@ title: Log
   <section class="about">
     <h3>Recent Updates</h3>
     <ul>
-      <li>Added Fluid.js background to all pages for a dynamic effect.</li>
-      <li>Integrated Architect Jekyll theme for clean minimal design.</li>
-      <li>Added birthday countdown on its dedicated page.</li>
-      <li>Dark/light mode toggle with cookie persistence.</li>
-      <li>Welcome and survey popups implemented.</li>
+      <li>basically revamped the entire site</li>
+      <li>Integrated dark/light mode toggle with cookie persistence.</li>
     </ul>
   </section>
 </main>
 
+<div id="survey-popup" class="popup">
+  <span class="close-btn" id="close-popup">✖</span>
+  <p>Help improve this site!</p>
+  <a href="#" class="popup-btn">Take Survey</a>
+</div>
+
+<div id="welcome-popup" class="popup-center">
+  <div class="popup-box">
+    <h3>Welcome!</h3>
+    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
+    <button id="enter-btn">Let's Go!</button>
+  </div>
+</div>
+
 <script src="script.js" defer></script>
-<link rel="stylesheet" href="style.css">
+</body>
+</html>
