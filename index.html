@@ -1,49 +1,85 @@
----
-layout: default
-title: Birthday Countdown
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan Tang - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <canvas id="fluid-canvas"></canvas>
 
 <header class="navbar">
   <h1 class="logo">Ethan Tang</h1>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="log.html">Log</a>
-    <a href="countdown.html" class="active">Countdown</a>
+    <a href="countdown.html">Countdown</a>
   </nav>
   <button id="theme-toggle">🌙</button>
 </header>
 
 <main class="content">
-  <h2>Birthday Countdown 🎉</h2>
-  <p>Counting down to <strong>September 24</strong></p>
-  <div id="countdown" class="countdown"></div>
+  <section class="intro">
+    <h2>Welcome to My Website!</h2>
+    <p>13 years old • MMS Student • Developer</p>
+    <div class="badges">
+      <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
+      <span class="badge">
+        <img src="https://hits.sh/ethanytangcodes.svg?style=flat-square&label=visits&color=6d28d9" alt="hits" />
+      </span>
+    </div>
+  </section>
+
+  <section class="about">
+    <h3>About This Site</h3>
+    <p>I made this website to share games and educational content in a safe, fun, and easy-to-use way.</p>
+    <p>Everything is responsibly sourced and open for anyone to explore.</p>
+  </section>
+
+  <section class="hidden-stuff">
+    <h3>Games & Proxy</h3>
+    <div class="card-grid">
+      <div class="card">
+        <h4>G4meBoy G4mes</h4>
+        <p>Classic retro games: Pokémon, Mario, Donkey Kong & more</p>
+        <a href="/gamebois/">Play Now</a>
+      </div>
+      <div class="card">
+        <h4>G4mes Collection</h4>
+        <p>Curated unblocked games</p>
+        <a href="/art/">Play Now</a>
+      </div>
+      <div class="card">
+        <h4>The Vault</h4>
+        <p>Massive collection of unblocked content</p>
+        <a href="/vault/">Open Vault</a>
+      </div>
+      <div class="card">
+        <h4>A Dark Room</h4>
+        <p>Immersive text-based adventure</p>
+        <a href="/text-game/">Play Now</a>
+      </div>
+    </div>
+  </section>
 </main>
 
+<div id="survey-popup" class="popup">
+  <span class="close-btn" id="close-popup">✖</span>
+  <p>Help improve this site!</p>
+  <a href="#" class="popup-btn">Take Survey</a>
+</div>
+
+<div id="welcome-popup" class="popup-center">
+  <div class="popup-box">
+    <h3>Welcome!</h3>
+    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
+    <button id="enter-btn">Let's Go!</button>
+  </div>
+</div>
+
 <script src="script.js" defer></script>
-<link rel="stylesheet" href="style.css">
-<script>
-function updateCountdown() {
-  const now = new Date();
-  const year = now.getFullYear();
-  let nextBirthday = new Date(`${year}-09-24T00:00:00`);
-  if (now > nextBirthday) nextBirthday = new Date(`${year + 1}-09-24T00:00:00`);
-  const diff = nextBirthday - now;
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((diff / (1000 * 60)) % 60);
-  const seconds = Math.floor((diff / 1000) % 60);
-
-  document.getElementById("countdown").innerHTML = `
-    <div class="time-box">${days}<span>days</span></div>
-    <div class="time-box">${hours}<span>hrs</span></div>
-    <div class="time-box">${minutes}<span>min</span></div>
-    <div class="time-box">${seconds}<span>sec</span></div>
-  `;
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-</script>
+</body>
+</html>
