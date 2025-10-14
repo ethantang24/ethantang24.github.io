@@ -1,33 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="ethanytang - About Me">
-    <meta name="robots" content="index, follow">
-    <link rel="icon" href="assets/img/classroom.png">
-    <title>About Me - Ethan Tang</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <canvas id="fluid"></canvas>
-    <nav class="navbar">
-    <a href="index.html">Home</a>
-    <a href="/about.html">About Me</a>
-    <a href="/chat.html">Chat</a>
-    <a href="/info.html">Info</a>
-    <a href="/log.html">Log</a>
-  </nav>
+---
+layout: default
+title: About
+---
 
-    <h1>About Me</h1>
-    <p>Hey! I'm Ethan Tang. I code stuff, make cool projects, and occasionally do things that shouldn't work but somehow do.</p>
-    <p>i spent a ton of time on the site so please appreciate it</p>
-    <p>You can reach me at: <a href="mailto:ethantytang11@gmail.com">ethantytang11@gmail.com</a></p>
-    <p>Or discord: @orangepea </p>
-    <script type="module">
-    import useFluidCursor from './fluid.js';
-    useFluidCursor();
-  </script>
-  </body>
-  
-</html>
+<canvas id="fluid-canvas"></canvas>
+
+<header class="navbar">
+  <h1 class="logo">Ethan Tang</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="log.html">Log</a>
+    <a href="countdown.html">Countdown</a>
+  </nav>
+  <button id="theme-toggle">🌙</button>
+</header>
+
+<main class="content">
+  <section class="intro">
+    <h2>About Me</h2>
+    <p>Hey! I’m Ethan, a 13-year-old student developer at MMS. I love coding, making websites, and sharing cool projects.</p>
+    <div class="badges">
+      <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
+      <span class="badge">
+        <img src="https://hits.sh/ethanytangcodes.svg?style=flat-square&label=visits&color=6d28d9" alt="hits" />
+      </span>
+    </div>
+  </section>
+
+  <section class="about">
+    <h3>My Projects & Vision</h3>
+    <p>
+      I build websites and tools that are accessible, educational, and fun. This site is one of my ongoing projects where I combine games, coding experiments, and learning resources.
+    </p>
+    <p>
+      Everything here is open and responsibly sourced. Please explore, learn, and use it responsibly.
+    </p>
+  </section>
+</main>
+
+<script src="script.js" defer></script>
+<link rel="stylesheet" href="style.css">
