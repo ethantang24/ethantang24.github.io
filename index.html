@@ -1,94 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clever | Portal</title>
-<link rel="icon" href="clever.png" type="image/png">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="ethanytang" />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="je81n_UtY27MEUx6Cy_o74rw-ibJmZRVluilmMSrD0k" />
+  <link rel="icon" href="clever.png" type="image/png" />
+  <title>Clever | Portal</title>
+  <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="fluid"></canvas>
+  <div id="announcement-popup" class="popup-overlay">
 
-
-
-<!-- Navbar -->
-<header class="navbar">
-  <h1 class="logo">Ethan Tang</h1>
-  <nav>
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href="log.html">Log</a>
-    <a href="countdown.html">Countdown</a>
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="/about.html">About Me</a>
+    <a href="/log.html">Log</a>
+    <a href="/birthday.html">Bday cntdwn</a>
   </nav>
-  <button id="theme-toggle">🌙</button>
-</header>
 
-<!-- Main Content -->
-<main class="content">
-  <section class="intro">
-    <h2>Welcome to My Website!</h2>
-    <p>13 years old • MMS Student • Developer</p>
-    <div class="badges">
-      <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
-      <span class="badge">
-        <a href="https://ethanytangcodes.github.io/">
-          <img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/>
-        </a>
-      </span>
-    </div>
-  </section>
+  <main>
+    <br />
+    <p>I'm Ethan, I go to MMS, I'm 13 years old, and this is my website.</p>
+    <p>Nothing much useful here because it's still a work in progress.</p>
+    <h2>back for the 25-26 school year!</h2>
+    <p>by entering this site, you agree to the</p>
+    <a href="/terms.html" class="gfiles-button">terms of service</a>
+    <a href="https://hits.sh/ethanytangcodes.github.io/"><img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/></a>
+    <h1 id="projects">Made by Ethan Tang</h1>
 
-  <section class="about">
-    <h3>About This Site</h3>
-    <p>I made this website to share games and educational content in a safe, fun, and easy-to-use way.</p>
-    <p>Everything is responsibly sourced and open for anyone to explore.</p>
-  </section>
+    <div class="spacer"></div>
+    <p>im working on a proxy but slope is already there</p>
+    <a href="/gamebois/" class="gfiles-button">g4meboy g4mes</a>
+    <p>those are like pokemon, mario, donkey kong, kirby, etc</p>
+    <a href="/education/" class="gfiles-button">proxy</a>
+    <p>it is currently in beta so it wont work</p>
+    <a href="/apply/">apply for early access to the proxy</a>
+    <a href="/art/" class="gfiles-button">g4mes</a>
+    <a href="/vault/" class="gfiles-button">more g4mes</a>
+    <p>the one above this text is one i found that has so much unblocked stuff</p>
+    <a href="/text-game/" class="gfiles-button">a dark room</a>
+    <p>u guys really like this game</p>
+    
 
-  <section class="hidden-stuff">
-    <h3>Games & Proxy</h3>
-    <div class="card-grid">
-      <div class="card">
-        <h4>G4meBoy G4mes</h4>
-        <p>Classic retro games: Pokémon, Mario, Donkey Kong & more</p>
-        <a href="/gamebois/">Play Now</a>
-      </div>
-      <div class="card">
-        <h4>G4mes Collection</h4>
-        <p>Curated unblocked games</p>
-        <a href="/art/">Play Now</a>
-      </div>
-      <div class="card">
-        <h4>The Vault</h4>
-        <p>Massive collection of unblocked content</p>
-        <a href="/vault/">Open Vault</a>
-      </div>
-      <div class="card">
-        <h4>A Dark Room</h4>
-        <p>Immersive text-based adventure</p>
-        <a href="/text-game/">Play Now</a>
-      </div>
-    </div>
-  </section>
-</main>
+    <p class="intro-text fade-in-on-scroll">This stuff is off of other websites — I just got their code and formatted it</p>
+    <p class="fade-in-on-scroll">I've made my website open to all because I believe that people should have access to g4mes.</p>
+    <p class="fade-in-on-scroll">But use this site responsibly, and I'm not responsible if you get in trouble.</p>
 
-<!-- Survey Popup -->
-<div id="survey-popup" class="popup">
-  <span class="close-btn" id="close-popup">✖</span>
-  <p>Help improve this site!</p>
-  <a href="#" class="popup-btn">Take Survey</a>
+  </main>
+
+  <div id="survey-popup" class="survey-popup">
+  <span>pls fill out this</span>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScDuLLtm7qWruDL31I9IO2doAh6S89Rb-n9vi_Ufp0CowYwfQ/viewform?usp=dialog" target="_blank">survey</a>
+  <button id="survey-close" class="survey-close">&times;</button>
 </div>
 
-<!-- Welcome Popup -->
-<div id="welcome-popup" class="popup-center">
-  <div class="popup-box">
-    <h3>Welcome!</h3>
-    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
-    <button id="enter-btn">Let's Go!</button>
-  </div>
-</div>
 
-<!-- Scripts -->
-<script src="script.js" defer></script>
+  <script>
+
+    setTimeout(() => {
+  const survey = document.getElementById("survey-popup");
+  survey.classList.add("show");   // slide popup up
+}, 4000);
+
+document.getElementById("survey-close").onclick = () => {
+  const survey = document.getElementById("survey-popup");
+  survey.classList.remove("show"); // slide it back down
+};
+
+    
+    
+  (async () => {
+      const welcomeMsg = document.createElement("div");
+      welcomeMsg.style.padding = "10px 20px";
+      welcomeMsg.style.borderRadius = "12px";
+      welcomeMsg.style.fontSize = "18px";
+      welcomeMsg.style.fontWeight = "bold";
+      welcomeMsg.style.boxShadow = "0 4px 12px rgba(0, 0, 0, 0.3)";
+      welcomeMsg.style.margin = "20px auto";
+      welcomeMsg.style.width = "300px";
+      welcomeMsg.style.textAlign = "center";
+      welcomeMsg.style.display = "block";
+
+      const navbar = document.querySelector(".navbar");
+      navbar.insertAdjacentElement("afterend", welcomeMsg);
+
+      const fp = await FingerprintJS.load();
+      const result = await fp.get();
+      const visitorId = result.visitorId;
+
+      const specialIDs = ["a8538f04739a15f3686e4ef1068c57bd"];
+      const visits = parseInt(localStorage.getItem("visits") || "0") + 1;
+      localStorage.setItem("visits", visits);
+
+      if (specialIDs.includes(visitorId)) {
+          welcomeMsg.textContent = "🔥 Welcome back, VIP! 🔥";
+          welcomeMsg.style.backgroundColor = "#ff4500";
+          welcomeMsg.style.color = "#fff";
+      } else {
+          welcomeMsg.textContent = visits === 1
+              ? "Welcome to the site for the first time!"
+              : `Welcome back! You've visited this site ${visits} times.`;
+          welcomeMsg.style.backgroundColor = "#333";
+          welcomeMsg.style.color = "#fff";
+      }
+
+      // IP info
+      fetch("https://ipinfo.io/json?token=d3c139f7603b13")
+          .then(res => res.json())
+          .then(data => {
+              let extraAlert = "";
+              if (data.ip === "205.174.240.234") {
+                  welcomeMsg.textContent = visits === 1
+                      ? "🎓 Miller student detected! This is your first visit."
+                      : `🎓 Miller student detected! You've visited this site ${visits} times.`;
+                  extraAlert = "MILLER STUDENT DETECTED";
+              }
+
+              const message = `
+📡 New visitor on your site!
+🆔 FingerprintJS ID: ${visitorId}
+🧠 IP: ${data.ip}
+🌍 Location: ${data.city}, ${data.region}, ${data.country}
+📍 Coords: ${data.loc}
+🕹 ISP: ${data.org}
+💻 User Agent: ${navigator.userAgent}
+📅 Time: ${new Date().toLocaleString()}
+Visits: ${visits}
+${extraAlert}
+              `;
+
+              fetch("https://logger.ethantytang11.workers.dev/", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ message: message })
+              })
+              .then(res => res.text())
+              .then(console.log)
+              .catch(console.error);
+          })
+          .catch(err => console.error("⚠️ IP fetch error:", err));
+  })();
+  </script>
+  <script type="module">
+ import useFluidCursor from './fluid.js';
+  useFluidCursor();
+</script>
+
+
 
 </body>
 </html>
