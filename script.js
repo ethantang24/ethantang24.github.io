@@ -15,10 +15,10 @@ themeToggle.addEventListener('click', () => {
 const welcomePopup = document.getElementById('welcome-popup');
 const enterBtn = document.getElementById('enter-btn');
 if (!getCookie('visited')) {
-  welcomePopup.style.display = 'flex';
+  welcomePopup.classList.add('show');
 }
 enterBtn.addEventListener('click', () => {
-  welcomePopup.style.display = 'none';
+  welcomePopup.classList.remove('show');
   setCookie('visited', 'true', 30);
 });
 
@@ -45,7 +45,7 @@ function getCookie(name) {
 
 // -------------------- Birthday Countdown --------------------
 if (document.getElementById('countdown')) {
-  const birthday = new Date(new Date().getFullYear(), 8, 24); // Sept 24 (month 0-indexed)
+  const birthday = new Date(new Date().getFullYear(), 8, 24); // Sept 24
   function updateCountdown() {
     const now = new Date();
     let nextBday = birthday;
