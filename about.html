@@ -1,7 +1,12 @@
----
-layout: default
-title: About
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About - Ethan Tang</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
 <canvas id="fluid-canvas"></canvas>
 
@@ -30,14 +35,25 @@ title: About
 
   <section class="about">
     <h3>My Projects & Vision</h3>
-    <p>
-      I build websites and tools that are accessible, educational, and fun. This site is one of my ongoing projects where I combine games, coding experiments, and learning resources.
-    </p>
-    <p>
-      Everything here is open and responsibly sourced. Please explore, learn, and use it responsibly.
-    </p>
+    <p>I build websites and tools that are accessible, educational, and fun. This site is one of my ongoing projects where I combine games, coding experiments, and learning resources.</p>
+    <p>Everything here is open and responsibly sourced. Please explore, learn, and use it responsibly.</p>
   </section>
 </main>
 
+<div id="survey-popup" class="popup">
+  <span class="close-btn" id="close-popup">✖</span>
+  <p>Help improve this site!</p>
+  <a href="#" class="popup-btn">Take Survey</a>
+</div>
+
+<div id="welcome-popup" class="popup-center">
+  <div class="popup-box">
+    <h3>Welcome!</h3>
+    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
+    <button id="enter-btn">Let's Go!</button>
+  </div>
+</div>
+
 <script src="script.js" defer></script>
-<link rel="stylesheet" href="style.css">
+</body>
+</html>
