@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clever | Portal</title>
-  <link rel="icon" href="clever.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clever | Portal</title>
+<link rel="icon" href="clever.png" type="image/png">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Fluid Cursor Canvas -->
 <canvas id="fluid"></canvas>
 
+<!-- Navbar -->
 <header class="navbar">
   <h1 class="logo">Ethan Tang</h1>
   <nav>
@@ -22,6 +24,7 @@
   <button id="theme-toggle">🌙</button>
 </header>
 
+<!-- Main Content -->
 <main class="content">
   <section class="intro">
     <h2>Welcome to My Website!</h2>
@@ -29,7 +32,9 @@
     <div class="badges">
       <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
       <span class="badge">
-        <a href="https://ethanytangcodes.github.io/"><img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/></a>
+        <a href="https://ethanytangcodes.github.io/">
+          <img alt="Hits" src="https://hits.sh/ethanytangcodes.github.io.svg"/>
+        </a>
       </span>
     </div>
   </section>
@@ -39,7 +44,6 @@
     <p>I made this website to share games and educational content in a safe, fun, and easy-to-use way.</p>
     <p>Everything is responsibly sourced and open for anyone to explore.</p>
   </section>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
   <section class="hidden-stuff">
     <h3>Games & Proxy</h3>
@@ -68,12 +72,14 @@
   </section>
 </main>
 
+<!-- Survey Popup -->
 <div id="survey-popup" class="popup">
   <span class="close-btn" id="close-popup">✖</span>
   <p>Help improve this site!</p>
   <a href="#" class="popup-btn">Take Survey</a>
 </div>
 
+<!-- Welcome Popup -->
 <div id="welcome-popup" class="popup-center">
   <div class="popup-box">
     <h3>Welcome!</h3>
@@ -82,11 +88,12 @@
   </div>
 </div>
 
+<!-- Scripts -->
 <script src="script.js" defer></script>
-<canvas id="fluid" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-1;"></canvas>
 <script type="module">
- import useFluidCursor from './fluid.js';
- useFluidCursor(); // initialize fluid.js
+  import useFluidCursor from './fluid.js';
+  useFluidCursor(); // initialize fluid cursor
 </script>
+
 </body>
 </html>
