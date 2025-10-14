@@ -44,7 +44,6 @@ function getCookie(name) {
 }
 
 // -------------------- Fluid Canvas Placeholder --------------------
-// This just ensures canvas exists and doesn't block clicks
 const fluidCanvas = document.getElementById('fluid-canvas');
 if (fluidCanvas) {
   fluidCanvas.width = window.innerWidth;
@@ -53,4 +52,27 @@ if (fluidCanvas) {
     fluidCanvas.width = window.innerWidth;
     fluidCanvas.height = window.innerHeight;
   });
+}
+
+// -------------------- Birthday Countdown --------------------
+if (document.getElementById('countdown')) {
+  const birthday = new Date(new Date().getFullYear(), 8, 24); // Sept 24 (month 0-indexed)
+  function updateCountdown() {
+    const now = new Date();
+    let nextBday = birthday;
+    if (now > birthday) nextBday = new Date(now.getFullYear() +1, 8, 24);
+    const diff = nextBday - now;
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff / (1000*60*60)) % 24);
+    const minutes = Math.floor((diff / (1000*60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    document.getElementById('countdown').innerHTML = `
+      <div class="time-box">${days}<span>days</span></div>
+      <div class="time-box">${hours}<span>hrs</span></div>
+      <div class="time-box">${minutes}<span>min</span></div>
+      <div class="time-box">${seconds}<span>sec</span></div>
+    `;
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
 }
