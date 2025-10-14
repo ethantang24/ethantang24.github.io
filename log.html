@@ -1,61 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Clever | Portal</title>
-  <link rel="icon" href="clever.png" type="image/png">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="title" content="ethanytang - log" />
+  <title>Log</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-
-<header class="navbar">
-  <h1 class="logo">Ethan Tang</h1>
-  <nav>
+  <canvas id="fluid"></canvas>
+  <!-- Navbar -->
+  <nav class="navbar">
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="log.html" class="active">Log</a>
-    <a href="birthday.html">Countdown</a>
+    <a href="/about.html">About Me</a>
+    <a href="/log.html">Log</a>
   </nav>
-  <button id="theme-toggle">🌙</button>
-</header>
-
-<main class="content">
-  <section class="intro">
-    <h2>Project Log</h2>
-    <p>This is my developer log. Here I document updates, new features, and experiments I try on my site.</p>
-    <div class="badges">
-      <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
-      <span class="badge">
-        <img src="https://hits.sh/ethanytangcodes.svg?style=flat-square&label=visits&color=6d28d9" alt="hits" />
-      </span>
+  <!-- Main Content -->
+  <main>
+  <h1>Update Log 🛠️</h1>
+  <div id="update-log">
+    <div class="log-entry">
+      <span class="log-date">2025-09-13</span>
+      <p class="log-text">added fluid cursor</p>
     </div>
-  </section>
-
-  <section class="about">
-    <h3>Recent Updates</h3>
-    <ul>
-      <li>basically revamped the entire site</li>
-      <li>Integrated dark/light mode toggle with cookie persistence.</li>
-    </ul>
-  </section>
-</main>
-
-<div id="survey-popup" class="popup">
-  <span class="close-btn" id="close-popup">✖</span>
-  <p>Help improve this site!</p>
-  <a href="#" class="popup-btn">Take Survey</a>
-</div>
-
-<div id="welcome-popup" class="popup-center">
-  <div class="popup-box">
-    <h3>Welcome!</h3>
-    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
-    <button id="enter-btn">Let's Go!</button>
+    <div class="log-entry">
+      <span class="log-date">2025-09-08</span>
+      <p class="log-text">ADDED THE NEW RELEASE</p>
+    </div>
+    <div class="log-entry">
+      <span class="log-date">2025-08-03</span>
+      <p class="log-text">added bday countdown</p>
+    </div>
+    <div class="log-entry">
+      <span class="log-date">2025-08-03</span>
+      <p class="log-text">the site's back!</p>
+    </div>
+    <div class="log-entry">
+      <span class="log-date">2025-05-21</span>
+      <p class="log-text">log created</p>
+    </div>
   </div>
-</div>
-
-<script src="script.js" defer></script>
+</main>
+  <script type="module">
+    import useFluidCursor from './fluid.js';
+    useFluidCursor();
+  </script>
 </body>
 </html>
