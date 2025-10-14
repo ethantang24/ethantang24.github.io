@@ -43,17 +43,6 @@ function getCookie(name) {
   return match ? match[2] : null;
 }
 
-// -------------------- Fluid Canvas Placeholder --------------------
-const fluidCanvas = document.getElementById('fluid-canvas');
-if (fluidCanvas) {
-  fluidCanvas.width = window.innerWidth;
-  fluidCanvas.height = window.innerHeight;
-  window.addEventListener('resize', () => {
-    fluidCanvas.width = window.innerWidth;
-    fluidCanvas.height = window.innerHeight;
-  });
-}
-
 // -------------------- Birthday Countdown --------------------
 if (document.getElementById('countdown')) {
   const birthday = new Date(new Date().getFullYear(), 8, 24); // Sept 24 (month 0-indexed)
