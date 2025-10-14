@@ -6,73 +6,12 @@
 <title>Clever | Portal</title>
 <link rel="icon" href="clever.png" type="image/png">
 <link rel="stylesheet" href="style.css">
-<style>
-  /* Fluid canvas full-screen */
-  #fluid {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index: 9999;
-    pointer-events:none;
-  }
-
-  /* Navbar */
-  header.navbar {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    background: rgba(10,10,30,0.7);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:1rem 2rem;
-    z-index:1000;
-    backdrop-filter: blur(10px);
-  }
-  header.navbar h1.logo { color:#fff; font-size:1.5rem; }
-  header.navbar nav a {
-    color:#fff; text-decoration:none; margin-left:1.5rem; font-weight:500;
-    transition: 0.3s;
-  }
-  header.navbar nav a.active, header.navbar nav a:hover { color:#00f6ff; }
-  #theme-toggle { background:none; border:none; font-size:1.3rem; cursor:pointer; color:#fff; }
-
-  /* Hero Section */
-  main.content { padding-top:90px; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; color:#fff; text-align:center; background: linear-gradient(135deg,#120c6a,#3f0aab);}
-  main.content h2 { font-size:3rem; margin-bottom:1rem; text-shadow: 0 0 10px rgba(0,0,0,0.5);}
-  main.content p { font-size:1.2rem; margin-bottom:1.5rem; }
-  .badges { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
-  .badge { padding:0.4rem 0.8rem; background:rgba(255,255,255,0.2); border-radius:8px; color:#fff; text-decoration:none; font-weight:500; }
-
-  /* About Section */
-  section.about { padding:4rem 2rem; background:rgba(0,0,0,0.05); color:#fff; max-width:800px; margin:auto; text-align:center;}
-  section.about h3 { font-size:2rem; margin-bottom:1rem;}
-  section.about p { font-size:1.1rem; margin-bottom:0.8rem;}
-
-  /* Cards Section */
-  section.hidden-stuff { padding:4rem 2rem; display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; max-width:1200px; margin:auto;}
-  .card-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:2rem; }
-  .card { background:rgba(255,255,255,0.1); backdrop-filter:blur(10px); padding:1.5rem; border-radius:12px; color:#fff; transition:0.3s; }
-  .card:hover { transform: translateY(-10px); background:rgba(0,255,255,0.1); }
-  .card h4 { margin-bottom:0.5rem; }
-  .card p { margin-bottom:1rem; }
-  .card a { color:#00f6ff; text-decoration:none; font-weight:600; }
-
-  /* Popups */
-  .popup, .popup-center { display:none; position:fixed; z-index:2000; }
-  .popup { top:10%; left:50%; transform:translateX(-50%); background:#222; padding:1rem 2rem; border-radius:12px; color:#fff; }
-  .popup-center { top:50%; left:50%; transform:translate(-50%,-50%); background:#222; padding:2rem; border-radius:12px; color:#fff; }
-  .popup .close-btn { cursor:pointer; position:absolute; top:8px; right:12px; }
-  .popup-btn, #enter-btn { display:inline-block; margin-top:1rem; background:#00f6ff; color:#000; padding:0.5rem 1rem; border-radius:8px; text-decoration:none; cursor:pointer; font-weight:600; }
-</style>
 </head>
 <body>
 
-<canvas id="fluid"></canvas>
 
+
+<!-- Navbar -->
 <header class="navbar">
   <h1 class="logo">Ethan Tang</h1>
   <nav>
@@ -84,9 +23,10 @@
   <button id="theme-toggle">🌙</button>
 </header>
 
+<!-- Main Content -->
 <main class="content">
   <section class="intro">
-    <h2>Hey, I'm Ethan!</h2>
+    <h2>Welcome to My Website!</h2>
     <p>13 years old • MMS Student • Developer</p>
     <div class="badges">
       <a class="badge" href="https://github.com/ethanytangcodes" target="_blank">Open Source</a>
@@ -105,6 +45,7 @@
   </section>
 
   <section class="hidden-stuff">
+    <h3>Games & Proxy</h3>
     <div class="card-grid">
       <div class="card">
         <h4>G4meBoy G4mes</h4>
@@ -130,8 +71,24 @@
   </section>
 </main>
 
-<!-- Include your fluid.js -->
-<script src="fluid.js" defer></script>
+<!-- Survey Popup -->
+<div id="survey-popup" class="popup">
+  <span class="close-btn" id="close-popup">✖</span>
+  <p>Help improve this site!</p>
+  <a href="#" class="popup-btn">Take Survey</a>
+</div>
+
+<!-- Welcome Popup -->
+<div id="welcome-popup" class="popup-center">
+  <div class="popup-box">
+    <h3>Welcome!</h3>
+    <p>By entering this site, you agree to the <a href="/terms.html" target="_blank">Terms of Service</a>.</p>
+    <button id="enter-btn">Let's Go!</button>
+  </div>
+</div>
+
+<!-- Scripts -->
 <script src="script.js" defer></script>
+
 </body>
 </html>
