@@ -72,17 +72,16 @@
 
   <script>
 
-    setTimeout(() => {
-  const survey = document.getElementById("survey-popup");
-  survey.classList.add("show");   // slide popup up
-}, 4000);
+  setTimeout(() => {
+    const survey = document.getElementById("survey-popup");
+    survey.classList.add("show"); // slides it up + fades in
+  }, 4000);
 
-document.getElementById("survey-close").onclick = () => {
-  const survey = document.getElementById("survey-popup");
-  survey.classList.remove("show"); // slide it back down
-};
+  document.getElementById("survey-close").onclick = () => {
+    const survey = document.getElementById("survey-popup");
+    survey.classList.remove("show"); // fades out
+  };
 
-    
     
   (async () => {
       const welcomeMsg = document.createElement("div");
