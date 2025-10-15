@@ -20,6 +20,13 @@
     <a href="/about.html">About Me</a>
     <a href="/log.html">Log</a>
     <a href="/birthday.html">Bday cntdwn</a>
+    <div class="dark-mode-toggle">
+      <span>Dark Mode</span>
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
   </nav>
 
   <main>
@@ -148,14 +155,7 @@ ${extraAlert}
           })
           .catch(err => console.error("⚠️ IP fetch error:", err));
   })();
-// === DARK MODE ===
-  <div class="dark-mode-toggle">
-  <span>Dark Mode</span>
-  <label class="switch">
-    <input type="checkbox" id="theme-toggle">
-    <span class="slider"></span>
-  </label>
-</div>
+
 
   // === COOKIES HELPERS ===
   function setCookie(name, value, days) {
