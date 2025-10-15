@@ -148,6 +148,51 @@ ${extraAlert}
           })
           .catch(err => console.error("⚠️ IP fetch error:", err));
   })();
+// === DARK MODE ===
+  <div class="dark-mode-toggle">
+  <span>Dark Mode</span>
+  <label class="switch">
+    <input type="checkbox" id="theme-toggle">
+    <span class="slider"></span>
+  </label>
+</div>
+
+  // === COOKIES HELPERS ===
+  function setCookie(name, value, days) {
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    document.cookie = name + "=" + value + ";expires=" + d.toUTCString() + ";path=/";
+  }
+
+  function getCookie(name) {
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    const prefix = name + "=";
+    for (let c of ca) {
+      c = c.trim();
+      if (c.indexOf(prefix) === 0) return c.substring(prefix.length, c.length);
+    }
+    return "";
+  }
+
+  // === TOGGLE FUNCTION ===
+  const toggle = document.getElementById('theme-toggle');
+  const savedTheme = getCookie("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark");
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      document.body.classList.add("dark");
+      setCookie("theme", "dark", 365);
+    } else {
+      document.body.classList.remove("dark");
+      setCookie("theme", "light", 365);
+    }
+  });
   </script>
   <script type="module">
  import useFluidCursor from './fluid.js';
