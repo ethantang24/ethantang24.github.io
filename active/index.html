@@ -1,299 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="noindex, nofollow">
-    <title>in the big 25🥀</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UV Static v2</title>
+    <script src="check.js" defer></script>
+    <script defer src="scripts/lstimer.js"></script>
+
+    <link rel="stylesheet" href="style/global.css" />
+    <link rel="stylesheet" href="style/browser.css" />
+
+
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/gh/vanjs-org/van/public/van-1.5.2.nomodule.min.js"
+    ></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="uv/uv.config.js" defer></script>
+    <script src="scripts/tabs.mjs" type="module" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/gh/tf7software/Font-Awesome-pro-cdn@main/js/all.js"></script>
     <style>
-        html, body {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        #dialogText {
-            color: white;
-            background-color: #333333;
-        }
-        
-        #dialogWrap {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: table;
-            background-color: #EEEEEE;
-        }
-        
-        #dialogWrapCell {
-            display: table-cell;
-            text-align: center;
-            vertical-align: middle;
-        }
-        
-        #mainDialog {
-            max-width: 400px;
-            margin: 5px;
-            border: solid #AAAAAA 1px;
-            border-radius: 10px;
-            box-shadow: 3px 3px 5px 3px #AAAAAA;
-            margin-left: auto;
-            margin-right: auto;
-            background-color: #FFFFFF;
-            overflow: hidden;
-            text-align: left;
-        }
-        #mainDialog > * {
-            padding: 10px 30px;
-        }
-        #passArea {
-            padding: 20px 30px;
-            background-color: white;
-        }
-        #passArea > * {
-            margin: 5px auto;
-        }
-        #pass {
-            width: 100%;
-            height: 40px;
-            font-size: 30px;
-        }
-        
-        #messageWrapper {
-            float: left;
-            vertical-align: middle;
-            line-height: 30px;
-        }
-        
-        .notifyText {
-            display: none;
-        }
-        
-        #invalidPass {
-            color: red;
-        }
-        
-        #success {
-            color: green;
-        }
-        
-        #submitPass {
-            font-size: 20px;
-            border-radius: 5px;
-            background-color: #E7E7E7;
-            border: solid gray 1px;
-            float: right;
-            cursor: pointer;
-        }
-        #contentFrame {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        #attribution {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 0.8em;
-        }
-        #attribution, #attribution a {
-            color: #999;
-        }
-        .error {
-            display: none;
-            color: red;
-        }
+      body {padding: 0;margin: 0;}
     </style>
+    <script>
+      window.onload = function () {
+        if (!localStorage.getItem("discordAlertShown")) {
+          alert("welcome to the proxy!");
+          localStorage.setItem("discordAlertShown", "true");
+        }
+      };
+    </script>
   </head>
+
   <body>
-    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
-    <div id="dialogWrap">
-        <div id="dialogWrapCell">
-            <div id="mainDialog">
-                <div id="dialogText">you'll never guess it</div>
-                <div id="passArea">
-                    <p id="passwordPrompt">Password</p>
-                    <input id="pass" type="password" name="pass" autofocus>
-                    <div>
-                        <span id="messageWrapper">
-                            <span id="invalidPass" class="error">good try</span>
-                            <span id="trycatcherror" class="error">theres an error</span>
-                            <span id="success" class="notifyText">nice job</span>
-                            &nbsp;
-                        </span>
-                        <button id="submitPass" type="button">Submit</button>
-                        <div style="clear: both;"></div>
-                    </div>
-                </div>
-                <div id="securecontext" class="error">
-                    <p>
-                        password protection only works on https. sorry
-                    </p>
-                </div>
-                <div id="nocrypto" class="error">
-                    <p>
-                        go get a newer browser unc
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="attribution">
-        You really thought
+@@ -165,15 +157,13 @@
+
+    <div id="menu-overlay">
+      <div class="option" id="devtools-option">Developer Tools</div>
+      <div class="option" id="abc-option">Open in about:blank</div>
+      <div class="option" id="git-option">GitHub</div>
     </div>
     <script>
-    (function() {
-
-        var pl = "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";
-        
-        var submitPass = document.getElementById('submitPass');
-        var passEl = document.getElementById('pass');
-        var invalidPassEl = document.getElementById('invalidPass');
-        var trycatcherror = document.getElementById('trycatcherror');
-        var successEl = document.getElementById('success');
-        var contentFrame = document.getElementById('contentFrame');
-        
-        // Sanity checks
-
-        if (pl === "") {
-            submitPass.disabled = true;
-            passEl.disabled = true;
-            alert("stop hacking bud");
-            return;
-        }
-
-        if (!isSecureContext) {
-            document.querySelector("#passArea").style.display = "none";
-            document.querySelector("#securecontext").style.display = "block";
-            return;
-        }
-
-        if (!crypto.subtle) {
-            document.querySelector("#passArea").style.display = "none";
-            document.querySelector("#nocrypto").style.display = "block";
-            return;
-        }
-        
-        function str2ab(str) {
-            var ustr = atob(str);
-            var buf = new ArrayBuffer(ustr.length);
-            var bufView = new Uint8Array(buf);
-            for (var i=0, strLen=ustr.length; i < strLen; i++) {
-                bufView[i] = ustr.charCodeAt(i);
-            }
-            return bufView;
-        }
-
-        async function deriveKey(salt, password) {
-            const encoder = new TextEncoder()
-            const baseKey = await crypto.subtle.importKey(
-                'raw',
-                encoder.encode(password),
-                'PBKDF2',
-                false,
-                ['deriveKey'],
-            )
-            return await crypto.subtle.deriveKey(
-                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
-                baseKey,
-                { name: 'AES-GCM', length: 256 },
-                true,
-                ['decrypt'],
-            )
-        }
-        
-        async function doSubmit(evt) {
-            submitPass.disabled = true;
-            passEl.disabled = true;
-
-            let iv, ciphertext, key;
-            
-            try {
-                var unencodedPl = str2ab(pl);
-
-                const salt = unencodedPl.slice(0, 32)
-                iv = unencodedPl.slice(32, 32 + 16)
-                ciphertext = unencodedPl.slice(32 + 16)
-
-                key = await deriveKey(salt, passEl.value);
-            } catch (e) {
-                trycatcherror.style.display = "inline";
-                console.error(e);
-                return;
-            }
-
-            try {
-                const decryptedArray = new Uint8Array(
-                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
-                );
-
-                let decrypted = new TextDecoder().decode(decryptedArray);
-
-                if (decrypted === "") throw "No data returned";
-
-                const basestr = '<base href="." target="_top">';
-                const anchorfixstr = `
-                    <script>
-                        Array.from(document.links).forEach((anchor) => {
-                            const href = anchor.getAttribute("href");
-                            if (href.startsWith("#")) {
-                                anchor.addEventListener("click", function(e) {
-                                    e.preventDefault();
-                                    const targetId = this.getAttribute("href").substring(1);
-                                    const targetEl = document.getElementById(targetId);
-                                    targetEl.scrollIntoView();
-                                });
-                            }
-                        });
-                    <\/script>
-                `;
-                
-                // Set default iframe link targets to _top so all links break out of the iframe
-                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
-                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
-                else decrypted = basestr + decrypted;
-
-                // Fix fragment links
-                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
-                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
-                else decrypted = decrypted + anchorfixstr;
-                
-                contentFrame.srcdoc = decrypted;
-                
-                successEl.style.display = "inline";
-                setTimeout(function() {
-                    dialogWrap.style.display = "none";
-                }, 1000);
-            } catch (e) {
-                invalidPassEl.style.display = "inline";
-                passEl.value = "";
-                submitPass.disabled = false;
-                passEl.disabled = false;
-                console.error(e);
-                return;
-            }
-        }
-        
-        submitPass.onclick = doSubmit;
-        passEl.onkeypress = function(e){
-            if (!e) e = window.event;
-            var keyCode = e.keyCode || e.which;
-            invalidPassEl.style.display = "none";
-            if (keyCode == '13'){
-              // Enter pressed
-              doSubmit();
-              return false;
-            }
-        }
-    })();
+      const optionsBtn = document.getElementById("options-btn");
+      const overlay = document.getElementById("menu-overlay");
+      optionsBtn.addEventListener("click", () => {
+        overlay.classList.toggle("active");
+      });
     </script>
   </body>
 </html>
