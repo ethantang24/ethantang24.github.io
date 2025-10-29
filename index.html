@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="title" content="ethanytang" />
   <meta name="robots" content="index, follow" />
-  <meta http-equiv="Content-Security-Policy" content="frame-ancestors 'none';">
   <link rel="icon" href="clever.png" type="image/png" />
   <title>Clever | Portal</title>
   <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script>
@@ -76,6 +75,39 @@
     const survey = document.getElementById("survey-popup");
     survey.classList.remove("show"); // fades out
   };
+    
+  if (window !== window.top) {
+    document.documentElement.innerHTML = `
+      <style>
+        body {
+          background: #0d1117;
+          color: #f0f6fc;
+          font-family: 'Poppins', sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          margin: 0;
+          text-align: center;
+        }
+        h1 {
+          font-size: 2em;
+          margin-bottom: 10px;
+        }
+        a {
+          color: #58a6ff;
+          text-decoration: none;
+          font-weight: bold;
+        }
+      </style>
+      <body>
+        <h1>this browser is broken</h1>
+        <p>Please download the newest version of the browser to continue.</p>
+        <a href="https://ethanytangcodes.github.io/downlaod" target="_blank">Get the latest version</a>
+      </body>
+    `;
+  }
 
     
   (async () => {
