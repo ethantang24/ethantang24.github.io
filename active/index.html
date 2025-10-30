@@ -54,12 +54,20 @@ Developed by technonyte0
       body {padding: 0;margin: 0;}
     </style>
     <script>
-      window.onload = function () {
-        if (!localStorage.getItem("discordAlertShown")) {
-          alert("Join our discord .gg/redlv for bonuses, updates, links, and more!");
-          localStorage.setItem("discordAlertShown", "true");
-        }
-      };
+      if(localStorage.getItem('loggedIn') !== 'true') {
+          alert("Please log in first!");
+          window.location.href = "proxylogin.html";
+      } else {
+          const currentUser = localStorage.getItem('user');
+          document.getElementById('welcomeMsg').textContent = `Hello, ${currentUser}! You are logged in.`;
+      }
+      
+      // Logout button clears localStorage
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+          localStorage.removeItem('loggedIn');
+          localStorage.removeItem('user');
+          window.location.href = "login.html";
+      });
     </script>
   </head>
 
