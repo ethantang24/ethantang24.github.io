@@ -56,7 +56,7 @@ Developed by technonyte0
     <script>
       if(localStorage.getItem('loggedIn') !== 'true') {
           alert("Please log in first!");
-          window.location.href = "proxylogin.html";
+          window.location.href = "/proxylogin.html";
       } else {
           const currentUser = localStorage.getItem('user');
           document.getElementById('welcomeMsg').textContent = `Hello, ${currentUser}! You are logged in.`;
