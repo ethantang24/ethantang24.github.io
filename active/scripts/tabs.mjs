@@ -51,7 +51,7 @@ pageRefresh.onclick = () => {
 };
 
 newTabButton.onclick = () => {
-  addTab("ethanytangcodes.github.io/search");
+  addTab("ethantang24.github.io/search");
 };
 
 // Options (opt menu)
@@ -75,7 +75,7 @@ abcOption.onclick = () => {
 };
 
 gitOption.onclick = () => {
-  window.open("https://ethanytangcodes.github.io", "_blank");
+  window.open("https://ethantang24.github.io", "_blank");
 };
 
 urlForm.onsubmit = async (e) => {
@@ -133,7 +133,7 @@ const tabItem = (tab) => {
             if (tabs.length) focusTab(tabs[tabs.length - 1]);
             else
               setTimeout(() => {
-                addTab("ethanytangcodes.github.io/search");
+                addTab("ethantang24.github.io/search");
               }, 100);
           }
 
@@ -248,7 +248,7 @@ async function addTab(link) {
   focusTab(tab);
 }
 
-addTab("ethanytangcodes.github.io/search");
+addTab("ethantang24.github.io/search");
 
 const urlParams = new URLSearchParams(window.location.search);
 
