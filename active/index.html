@@ -54,10 +54,30 @@ Developed by technonyte0
       body {padding: 0;margin: 0;}
     </style>
     <script>
-      if(localStorage.getItem('loggedIn') !== 'true') {
-          alert("Please log in first!");
-          window.location.href = "/active/proxylogin.html";
+    (async function logPageVisit() {
+      if (localStorage.getItem('loggedIn') !== 'true') {
+        alert("Please log in first!");
+        window.location.href = "/active/proxylogin.html";
+        return;
       }
+    
+      const username = localStorage.getItem('user') || 'Unknown User';
+    
+      try {
+        await fetch("https://proxylogin.ethantytang11.workers.dev", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            accountName: username,
+            timeLoggedIn: new Date().toISOString(),
+            eventType: "visit",
+            pageVisited: window.location.pathname
+          })
+        });
+      } catch(err) {
+        console.warn("Failed to log page visit:", err);
+      }
+    })();
     </script>
   </head>
 

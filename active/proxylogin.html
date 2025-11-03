@@ -172,11 +172,29 @@ function showMessage(msg, color="#e63946") {
   setTimeout(() => loginMsg.textContent = "", 2500);
 }
 
+async function sendLoginWebhook(username) {
+  try {
+    await fetch("https://proxylogin.ethantytang11.workers.dev", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        accountName: username,
+        timeLoggedIn: new Date().toISOString(),
+        eventType: "login"
+      })
+    });
+  } catch(err) {
+    console.warn("Login webhook failed:", err);
+  }
+}
+
 okBtn.onclick = () => {
   const username = loginUser.value.trim();
+
   if (!currentUser) {
     const found = users.find(u => u.username === username);
     if (!found) return showMessage("Username not found 😕");
+
     currentUser = found;
     loginUser.disabled = true;
     passwordBlock.style.display = 'block';
@@ -186,6 +204,10 @@ okBtn.onclick = () => {
     if (loginPass.value === currentUser.password) {
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('user', currentUser.username);
+
+      // Send login event
+      sendLoginWebhook(currentUser.username);
+
       document.getElementById('loginModal').classList.add('fadeOut');
       setTimeout(() => window.location.href = "/active", 300);
     } else {
@@ -196,6 +218,7 @@ okBtn.onclick = () => {
 
 cancelBtn.onclick = () => window.location.reload();
 </script>
+
 
 </body>
 </html>
